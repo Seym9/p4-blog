@@ -3,7 +3,7 @@ namespace App\Model\Database;
 
 use PDO;
 
-class MysqlDataBase {
+class DataBase {
     private $db_name;
     private $db_user;
     private $db_pass;
@@ -17,7 +17,6 @@ class MysqlDataBase {
         $this->db_pass = $db_pass;
         $this->db_host = $db_host;
     }
-
 
     public function getDB(){
         if ($this->pdo === null){
