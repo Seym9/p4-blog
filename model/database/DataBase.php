@@ -26,4 +26,9 @@ class DataBase {
         }
         return $pdo;
     }
+
+    public function sendData(){
+        $datas =  new PDO('mysql:host=localhost;dbname=p4_blog;charset=utf8', 'root', '');
+        return $datas;
+    }
 }

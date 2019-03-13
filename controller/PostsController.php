@@ -12,7 +12,7 @@ class PostsController {
     }
 
     public function setPost($post_id){
-        if ($_GET['post-id']){
+        if ($_GET['id']){
             $post = new GetPosts();
             $displayPost = $post->getPost($post_id);
             require "view/page/post.php";
