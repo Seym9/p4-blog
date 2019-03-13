@@ -7,10 +7,10 @@ use App\Controller\PostsController;
 
 Autoloader::register();
 
-if (isset($_GET['id'])) {
+if ($_GET['p'] === 'post') {
         $post = new PostsController();
-        $post->setPost($_GET['id']);
+        $post->displayPost(htmlentities($_GET['id']));
 } else {
     $posts = new PostsController();
-    $posts->setPostsList();
+    $posts->displayPostsList();
 }
