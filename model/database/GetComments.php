@@ -23,14 +23,14 @@ class GetComments extends DataBase {
         return $sentComments;
     }
 
-    public function getCommentsList() {
+    public function getCommentsList($id_post) {
         $dbConnect = $this->getDB();
         $request = $dbConnect->prepare("
-            SELECT id, author, message, DATE_FORMAT(comment_date, '%d/%m/%Y') as date_fr
+            SELECT id, author, message, id_post, DATE_FORMAT(comment_date, '%d/%m/%Y') as date_fr
             FROM p4_comments
             ORDER BY comment_date DESC
         ");
-        $request->execute();
+        $request->execute(array($id_post));
         $commentsList = $request->fetchAll();
         return $commentsList;
     }

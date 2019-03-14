@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\model\database\GetComments;
 use App\Model\Database\GetPosts;
 
 class PostsController {
@@ -15,6 +16,9 @@ class PostsController {
         if (isset($_GET['id'])){
             $post = new GetPosts();
             $displayPost = $post->getPost($_GET['id']);
+
+            $comments = new GetComments();
+            $displayComments = $comments->getCommentsList($_GET['id']);
             require "view/page/post.php";
         } else {
             echo '404';

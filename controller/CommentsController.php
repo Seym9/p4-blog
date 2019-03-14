@@ -3,7 +3,11 @@
 namespace App\Controller;
 
 
-class CommentsController
-{
+use App\model\database\GetComments;
 
+class CommentsController{
+
+    public function displayCommentsList () {
+
+    }
 }
