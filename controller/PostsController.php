@@ -11,10 +11,10 @@ class PostsController {
         require "view/page/home.php";
     }
 
-    public function displayPost($post_id){
+    public function displayPost(){
         if (isset($_GET['id'])){
             $post = new GetPosts();
-            $displayPost = $post->getPost($post_id);
+            $displayPost = $post->getPost($_GET['id']);
             require "view/page/post.php";
         } else {
             echo '404';

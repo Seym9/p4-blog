@@ -11,7 +11,17 @@ namespace App\model\database;
 
 class GetComments extends DataBase {
 
+    public function sendComments ($author, $message, $id_post) {
+        $dbConnect = $this->getDB();
+        $sendComments = $dbConnect->prepare("
+            INSERT INTO p4_comments(author, message, comment_date,id_post) 
+            VALUES (?,?,NOW(),?)
+        ");
+        $sendComments->execute(array($author, $message, $id_post));
+        $sentComments = $sendComments->fetchAll();
 
+        return $sentComments;
+    }
 
     public function getCommentsList() {
         $dbConnect = $this->getDB();
@@ -19,8 +29,12 @@ class GetComments extends DataBase {
             SELECT id, author, message, DATE_FORMAT(comment_date, '%d/%m/%Y') as date_fr
             FROM p4_comments
             ORDER BY comment_date DESC
-            ");
+        ");
+        $request->execute();
         $commentsList = $request->fetchAll();
         return $commentsList;
     }
+
+
+
 }
