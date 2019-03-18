@@ -7,7 +7,7 @@ use App\model\database\GetComments;
 
 class CommentsController{
 
-    public function displayCommentsList () {
+    public function sendComment () {
 
     }
 }

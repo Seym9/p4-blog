@@ -5,6 +5,22 @@
         <p><?= $displayPost['date_fr'] ?></p>
         <p><?= $displayPost['content'] ?></p>
     </div>
+
+<div class="container">
+    <form action="index.php?p=sendcomment&idpost=<?= $displayPost['id'] ?>" method="post">
+        <div>
+        <label for="author"></label>
+        <input name="authod" type="text" id="author" placeholder="Votre nom">
+        </div>
+        <div>
+        <label for="comment"></label>
+        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Votre message"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Send" class="btn btn-primary">
+        </div>
+    </form>
+</div>
 <?php foreach ($displayComments as $commentList) : ?>
 <?php if ($displayPost['id'] === $commentList['id_post']) : ?>
     <div class="container">
