@@ -13,16 +13,16 @@ class PostsController {
     }
 
     public function displayPost(){
+
         if (isset($_GET['id'])){
             $post = new GetPosts();
-            $displayPost = $post->getPost($_GET['id']);
-
             $comments = new GetComments();
+            $displayPost = $post->getPost($_GET['id']);
             $displayComments = $comments->getCommentsList($_GET['id']);
             require "view/page/post.php";
         } else {
             echo '404';
         }
-
     }
+
 }

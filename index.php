@@ -13,7 +13,6 @@ if (isset($_GET['p'])) {
     if ($_GET['p'] === 'post') {
         $post = new PostsController();
         $post->displayPost();
-
     }
 
 } else {
