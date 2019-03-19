@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<form action="" method="post">
+<form action="index.php?p=post-send" method="post">
 
     <div class="container">
         <label for="title-edit">Titre du post</label>
@@ -10,7 +10,9 @@
         <label for="post-edit">Contenu du post</label>
         <textarea name="post" id="post-edit" cols="30" rows="10"></textarea>
     </div>
-
+    <div>
+        <input type="submit" value="Send" class="btn btn-primary">
+    </div>
 </form>
 
 <?php

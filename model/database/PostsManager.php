@@ -33,4 +33,15 @@ class PostsManager extends Manager {
         return $post;
     }
 
+    public function sendPost($post_title, $content){
+        $dbConnect = $this->getDB();
+        $sendPost = $dbConnect->prepare("
+            INSERT INTO p4_posts(post_title, content, post_date) 
+            VALUES (?,?,NOW())
+        ");
+        $sendPost->execute(array($post_title, $content));
+
+        // $count = $sendComments->rowCount();
+    }
+
 }

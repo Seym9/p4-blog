@@ -19,6 +19,9 @@ if (isset($_GET['p'])) {
         $comment->sendComment();
     }elseif ($_GET['p'] === 'post-edit'){
         $postEdit = new PostEditController();
+        $postEdit->displayPostEdit();
+    }elseif ($_GET['p'] === 'post-send'){
+        $postEdit = new PostEditController();
         $postEdit->createPost();
     }
 } else {
