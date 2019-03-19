@@ -3,7 +3,7 @@ namespace App\Model\Database;
 
 use PDO;
 
-class DataBase {
+class Manager {
     private $db_name;
     private $db_user;
     private $db_pass;

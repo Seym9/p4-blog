@@ -2,7 +2,7 @@
 
 namespace App\Model\Database;
 
-class GetPosts extends DataBase {
+class PostsManager extends Manager {
 
     /**
      * @return array

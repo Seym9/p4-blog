@@ -3,7 +3,7 @@
 namespace App\model\database;
 
 
-class GetComments extends DataBase {
+class CommentsManager extends Manager {
 
     public function sendComments ($author, $message, $id_post) {
         $dbConnect = $this->getDB();
@@ -12,9 +12,8 @@ class GetComments extends DataBase {
             VALUES (?,?,NOW(),?)
         ");
         $sendComments->execute(array($author, $message, $id_post));
-        $sentComments = $sendComments->fetchAll();
 
-        return $sentComments;
+       // $count = $sendComments->rowCount();
     }
 
     public function getCommentsList($id_post) {

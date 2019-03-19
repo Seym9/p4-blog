@@ -4,15 +4,16 @@
         <h3><?= $displayPost['post_title'] ?></h3>
         <p><?= $displayPost['date_fr'] ?></p>
         <p><?= $displayPost['content'] ?></p>
+        <a href="index.php?p=post-edit">Edit</a>
     </div>
 <div class="container">
     <form action="index.php?p=sendcomment&id_post=<?= $displayPost['id']?>" method="post">
         <div>
-            <label for="author"></label>
+            <label for="author">Nom ou pseudo</label>
             <input name="author" type="text" id="author" placeholder="Votre nom">
         </div>
         <div>
-            <label for="comment"></label>
+            <label for="comment">Message</label>
             <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Votre message"></textarea>
         </div>
         <div>
