@@ -5,16 +5,15 @@
         <p><?= $displayPost['date_fr'] ?></p>
         <p><?= $displayPost['content'] ?></p>
     </div>
-
 <div class="container">
-    <form action="index.php?p=sendcomment&idpost=<?= $displayPost['id'] ?>" method="post">
+    <form action="index.php?p=sendcomment&id_post=<?= $displayPost['id']?>" method="post">
         <div>
-        <label for="author"></label>
-        <input name="authod" type="text" id="author" placeholder="Votre nom">
+            <label for="author"></label>
+            <input name="author" type="text" id="author" placeholder="Votre nom">
         </div>
         <div>
-        <label for="comment"></label>
-        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Votre message"></textarea>
+            <label for="comment"></label>
+            <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Votre message"></textarea>
         </div>
         <div>
             <input type="submit" value="Send" class="btn btn-primary">
