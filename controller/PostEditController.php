@@ -9,7 +9,7 @@ use App\Model\Database\PostsManager;
 class PostEditController{
 
     public function displayPostEdit () {
-        require "view/admin/postEdit.php";
+        require "view/admin/postAdmin.php";
     }
 
     public function createPost () {
@@ -23,7 +23,7 @@ class PostEditController{
                 exit;
             }
 
-        require "view/admin/postEdit.php";
+        require "view/admin/postAdmin.php";
     }
 
 }

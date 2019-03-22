@@ -25,6 +25,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php?p=login">Login</a>
                 </li>
             </ul>
         </div>

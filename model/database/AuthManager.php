@@ -4,7 +4,7 @@ namespace App\model\database;
 
 class AuthManager extends Manager {
 
-   public function auth($login){
+   public function getAuth($login){
        $dbConnect = $this->getDB();
        $request = $dbConnect->prepare("
             SELECT id, login, username,  pass, statut

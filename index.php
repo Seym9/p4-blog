@@ -3,11 +3,14 @@ define('ROOT', __DIR__);
 
 require 'Autoloader.php';
 use App\Autoloader;
+use App\controller\AuthController;
 use App\Controller\PostsController;
 use App\Controller\CommentsController;
 use App\Controller\PostEditController;
 
 Autoloader::register();
+
+session_start();
 
 if (isset($_GET['p'])) {
 
@@ -23,6 +26,9 @@ if (isset($_GET['p'])) {
     }elseif ($_GET['p'] === 'post-send'){
         $postEdit = new PostEditController();
         $postEdit->createPost();
+    }elseif ($_GET['p'] === 'login'){
+        $login = new AuthController();
+        $login->login();
     }
 } else {
     $posts = new PostsController();
