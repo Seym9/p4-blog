@@ -1,7 +1,5 @@
 <?php
-
 namespace App\model\database;
-
 
 class CommentsManager extends Manager {
 
@@ -27,7 +25,4 @@ class CommentsManager extends Manager {
         $commentsList = $request->fetchAll();
         return $commentsList;
     }
-
-
-
 }

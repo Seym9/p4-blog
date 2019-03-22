@@ -1,8 +1,5 @@
 <?php
-
-
 namespace App\controller;
-
 
 use App\Model\Database\PostsManager;
 
@@ -28,7 +25,6 @@ class PostEditController extends PostsController {
                 header('Location: index.php?p=post-edit');
                 exit;
             }
-
         require "view/admin/postAdmin.php";
     }
 

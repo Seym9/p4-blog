@@ -1,6 +1,4 @@
 <?php ob_start(); ?>
-<?php //var_dump($_POST); ?>
-<?php var_dump($_SESSION); ?>
     <div class="container">
         <form action="index.php?p=login" method="post">
             <div>
@@ -16,7 +14,6 @@
             </div>
         </form>
     </div>
-
 <?php
 $content = ob_get_clean();
 require "view/layout.php";

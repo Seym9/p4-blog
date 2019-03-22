@@ -1,5 +1,6 @@
 <?php ob_start(); ?>
 <a href="index.php?p=post-creation">Crée un post</a>
+
 <?php foreach ($displayList as $posts): ?>
 <div class="col-md-6" style="border: 2px solid black">
         <h2><?= $posts['post_title'] ?></h2>

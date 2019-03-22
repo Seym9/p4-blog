@@ -1,15 +1,13 @@
 <?php ob_start();
-if (isset($_GET['id'])){
-    $title = $displayPost['post_title'];
-    $postContent = $displayPost['content'];
-}else{
-    $title = "";
-    $postContent = "";
-}
-?>
-
+    if (isset($_GET['id'])){
+        $title = $displayPost['post_title'];
+        $postContent = $displayPost['content'];
+    }else{
+        $title = "";
+        $postContent = "";
+    }
+    ?>
     <div class="container">
-
         <form action="index.php?p=post-send" method="post">
             <div>
                 <label for="title-edit">Titre du post</label>
@@ -24,8 +22,7 @@ if (isset($_GET['id'])){
             </div>
         </form>
     </div>
-
 <?php
-$content = ob_get_clean();
-require "view/layout.php";
+    $content = ob_get_clean();
+    require "view/layout.php";
 ?>

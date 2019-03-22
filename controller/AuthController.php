@@ -1,7 +1,5 @@
 <?php
-
 namespace App\controller;
-
 
 use App\model\database\AuthManager;
 

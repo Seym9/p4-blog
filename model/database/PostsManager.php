@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model\Database;
 
 class PostsManager extends Manager {
