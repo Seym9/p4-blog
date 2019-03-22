@@ -14,11 +14,19 @@ class AuthController {
 
             if (password_verify($_POST['pass'], $verifAuth['pass'])){
                 $_SESSION['login'] = $verifAuth;
-                header('Location: view/admin/dashboard.php');
+                header('Location: index.php?p=dashboard');
             }
         }else{
             echo 'error';
         }
         require "view/page/login.php";
+    }
+
+    public function logout() {
+        $_SESSION = [];
+        session_destroy();
+
+        header('Location: index.php');
+        exit;
     }
 }

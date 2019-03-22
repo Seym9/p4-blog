@@ -6,13 +6,19 @@ namespace App\controller;
 
 use App\Model\Database\PostsManager;
 
-class PostEditController{
+class PostEditController extends PostsController {
 
     public function displayPostEdit () {
-        require "view/admin/postAdmin.php";
+        if (isset($_GET['id'])){
+            $post = new PostsManager();
+            $displayPost = $post->getPost($_GET['id']);
+            require "view/admin/postAdmin.php";
+        } else {
+            echo '404';
+        }
     }
 
-    public function createPost () {
+    public function sendingPost () {
             if (($_POST['title'])) {
                 $postsManager = new PostsManager();
                 $postCreated = $postsManager->sendPost($_POST['title'],$_POST['post']);
@@ -23,6 +29,10 @@ class PostEditController{
                 exit;
             }
 
+        require "view/admin/postAdmin.php";
+    }
+
+    public function createPost(){
         require "view/admin/postAdmin.php";
     }
 

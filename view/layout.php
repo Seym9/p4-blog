@@ -23,9 +23,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item active" style="display: flex">
                     <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-link" href="index.php?p=login">Login</a>
+                    <a class="nav-link" href="index.php?p=dashboard">dashboard</a>
+                    <a class="nav-link" href="index.php?p=logout">logout</a>
                 </li>
             </ul>
         </div>

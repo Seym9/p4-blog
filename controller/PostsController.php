@@ -24,5 +24,10 @@ class PostsController {
             echo '404';
         }
     }
+    public function displayPostsListAdmin() {
+        $postsList = new PostsManager();
+        $displayList = $postsList->getPostsList();
+        require "view/admin/dashboard.php";
+    }
 
 }

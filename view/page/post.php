@@ -4,7 +4,6 @@
         <h3><?= $displayPost['post_title'] ?></h3>
         <p><?= $displayPost['date_fr'] ?></p>
         <p><?= $displayPost['content'] ?></p>
-        <a href="index.php?p=post-edit">Edit</a>
     </div>
 <div class="container">
     <form action="index.php?p=sendcomment&id_post=<?= $displayPost['id']?>" method="post">

@@ -20,15 +20,24 @@ if (isset($_GET['p'])) {
     } elseif ($_GET['p'] === 'sendcomment'){
         $comment = new CommentsController();
         $comment->sendComment();
-    }elseif ($_GET['p'] === 'post-edit'){
-        $postEdit = new PostEditController();
-        $postEdit->displayPostEdit();
-    }elseif ($_GET['p'] === 'post-send'){
-        $postEdit = new PostEditController();
-        $postEdit->createPost();
     }elseif ($_GET['p'] === 'login'){
         $login = new AuthController();
         $login->login();
+    }elseif ($_GET['p'] === 'logout'){
+        $login = new AuthController();
+        $login->logout();
+    }elseif ($_GET['p'] === 'dashboard' && ($_SESSION['login']['user_status'] === 'admin')){
+        $post = new PostsController();
+        $post->displayPostsListAdmin();
+    }elseif ($_GET['p'] === 'post-send' && ($_SESSION['login']['user_status'] === 'admin')){
+        $postEdit = new PostEditController();
+        $postEdit->sendingPost();
+    }elseif ($_GET['p'] === 'post-edit' && ($_SESSION['login']['user_status'] === 'admin')){
+        $postEdit = new PostEditController();
+        $postEdit->displayPostEdit();
+    }elseif ($_GET['p'] === 'post-creation' && ($_SESSION['login']['user_status'] === 'admin')){
+        $postEdit = new PostEditController();
+        $postEdit->createPost();
     }
 } else {
     $posts = new PostsController();
