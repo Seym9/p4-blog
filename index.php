@@ -38,6 +38,18 @@ if (isset($_GET['p'])) {
     }elseif ($_GET['p'] === 'post-creation' && ($_SESSION['login']['user_status'] === 'admin')){
         $postEdit = new PostEditController();
         $postEdit->createPost();
+    }elseif ($_GET['p'] === 'post-edited' && ($_SESSION['login']['user_status'] === 'admin')){
+        $postEdit = new PostEditController();
+        $postEdit->updatePost();
+    }elseif ($_GET['p'] === 'post-delete' && ($_SESSION['login']['user_status'] === 'admin')){
+        $postEdit = new PostEditController();
+        $postEdit->deletePost();
+    }elseif ($_GET['p'] === 'post-admin' && ($_SESSION['login']['user_status'] === 'admin')){
+        $postEdit = new PostEditController();
+        $postEdit->postAdmin();
+    }elseif ($_GET['p'] === 'delete-com' && ($_SESSION['login']['user_status'] === 'admin')){
+        $postEdit = new PostEditController();
+        $postEdit->deleteComment();
     }
 } else {
     $posts = new PostsController();

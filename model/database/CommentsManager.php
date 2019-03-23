@@ -25,4 +25,10 @@ class CommentsManager extends Manager {
         $commentsList = $request->fetchAll();
         return $commentsList;
     }
+
+    public function deleteComments($comment_id) {
+        $dbConnect = $this->getDB();
+        $deletePost = $dbConnect->prepare('DELETE FROM p4_comments WHERE id = ?');
+        $deletePost->execute(array($comment_id));
+    }
 }

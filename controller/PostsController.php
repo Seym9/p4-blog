@@ -30,4 +30,6 @@ class PostsController {
         require "view/admin/dashboard.php";
     }
 
+
+
 }

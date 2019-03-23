@@ -1,28 +1,22 @@
-<?php ob_start();
-    if (isset($_GET['id'])){
-        $title = $displayPost['post_title'];
-        $postContent = $displayPost['content'];
-    }else{
-        $title = "";
-        $postContent = "";
-    }
-    ?>
-    <div class="container">
-        <form action="index.php?p=post-send" method="post">
-            <div>
-                <label for="title-edit">Titre du post</label>
-                <input type="text" name="title" id="title-edit" value="<?= $title ?>">
-            </div>
-            <div>
-                <label for="post-edit">Contenu du post</label>
-                <textarea name="post" id="post-edit" cols="30" rows="10"><?= $postContent ?></textarea>
-            </div>
-            <div>
-                <input type="submit" value="Send" class="btn btn-primary">
-            </div>
-        </form>
-    </div>
+<?php ob_start(); ?>
+<div class="container">
+    <h3><?= $displayPost['post_title'] ?></h3>
+    <p><?= $displayPost['date_fr'] ?></p>
+    <p><?= $displayPost['content'] ?></p>
+</div>
+
+<h2>commentaires</h2>
+<?php foreach ($displayComments as $commentList) : ?>
+    <?php if ($displayPost['id'] === $commentList['id_post']) : ?>
+        <div class="container">
+            <p><?= $commentList['date_fr'] ?></p>
+            <p><?= $commentList['author'] ?></p>
+            <p><?= $commentList['message'] ?></p>
+            <a href="index.php?p=delete-com&id=<?= $commentList['id_post']?>&id_com=<?= $commentList['id']?> ">delete</a>
+        </div>
+    <?php endif ?>
+<?php endforeach; ?>
 <?php
-    $content = ob_get_clean();
-    require "view/layout.php";
+$content = ob_get_clean();
+require "view/layout.php";
 ?>

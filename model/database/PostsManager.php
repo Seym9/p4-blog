@@ -43,4 +43,17 @@ class PostsManager extends Manager {
         // $count = $sendComments->rowCount();
     }
 
+    public function deletePost($post_id) {
+        $dbConnect = $this->getDB();
+        $deletePost = $dbConnect->prepare('DELETE FROM p4_posts WHERE id = ?');
+        $deletePost->execute(array($post_id));
+    }
+
+    public function updatePost($title, $content, $post_id){
+        $dbConnect = $this->getDB();
+        $updatePost = $dbConnect->prepare('UPDATE p4_posts SET post_title = ?, content = ? WHERE id = ?');
+        $updatePost->execute(array($title, $content, $post_id));
+
+    }
+
 }
