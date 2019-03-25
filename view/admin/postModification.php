@@ -17,7 +17,7 @@
             </div>
             <div>
                 <label for="post-edit">Contenu du post</label>
-                <textarea name="post" id="post-edit" cols="30" rows="10"><?= $postContent ?></textarea>
+                <textarea name="post" id="post" cols="30" rows="10"><?= $postContent ?></textarea>
             </div>
             <div>
                 <input type="submit" value="Send" class="btn btn-primary">

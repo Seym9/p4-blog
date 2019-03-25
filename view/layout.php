@@ -42,6 +42,8 @@
         </div>
     </div>
 </main>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=knwhkdyj7obl21ppqlgio0v11zpqcoji6j9l3oko98x46506'></script>
+<script src="public/js/tinymce.js"></script>
 </body>
 </html>
