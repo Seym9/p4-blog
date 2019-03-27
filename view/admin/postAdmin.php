@@ -14,7 +14,9 @@
             <p><?= $commentList['date_fr'] ?></p>
             <p><?= $commentList['author'] ?></p>
             <p><?= $commentList['message'] ?></p>
-            <a href="index.php?p=delete-com&id=<?= $commentList['id_post']?>&id_com=<?= $commentList['id']?> " class="delete-post">delete</a>
+            <div>
+            <a href="index.php?p=delete-com&id=<?= $commentList['id_post']?>&id_com=<?= $commentList['id']?> " class="delete-com">delete</a>
+            </div>
         </div>
     <?php endif ?>
 <?php endforeach; ?>

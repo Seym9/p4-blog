@@ -17,7 +17,7 @@ class PostEditController extends PostsController {
     }
 
     public function sendingPost () {
-            if (($_POST['title'])) {
+            if (isset($_POST['title'])) {
                 $postsManager = new PostsManager();
                 $postCreated = $postsManager->sendPost($_POST['title'],$_POST['post']);
                 header('Location: index.php?p=dashboard');
@@ -46,13 +46,12 @@ class PostEditController extends PostsController {
 
     public function deleteComment(){
         $comments = new CommentsManager();
-        $deleteComment = $comments->deleteComments($_GET['id_com']);
-        header('Location: index.php?p=post-admin&id=' . $_GET['id']);
-        exit;
+        $comments->deleteComments($_GET['id_com']);
+        echo json_encode('success');
     }
 
     public function updatePost() {
-        if (($_POST['title'])){
+        if (isset($_POST['title'])){
             $postManager = new PostsManager();
             $updatePost = $postManager->updatePost($_POST['title'],$_POST['post'],$_GET['id']);
             header('Location: index.php?p=dashboard');
@@ -64,10 +63,10 @@ class PostEditController extends PostsController {
     }
 
     public function deletePost() {
-        if ($_GET['id']){
+        if (isset($_GET['id'])){
             $postManager = new PostsManager();
             $postManager->deletePost($_GET['id']);
-            echo json_encode('test');
+            echo json_encode('success');
 
             //header('Location: index.php?p=dashboard');
             //exit;

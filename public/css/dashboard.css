@@ -1,0 +1,13 @@
+#title-date-dashboard{
+    display: flex;
+    justify-content: space-between;
+}
+
+#post-dashboard-container{
+    border: 2px solid black;
+}
+
+#link-post-dashboard{
+    display: flex;
+    justify-content: space-around;
+}

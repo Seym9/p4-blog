@@ -36,7 +36,7 @@ class CommentsManager extends Manager {
         $dbConnect = $this->getDB();
         $reportComment = $dbConnect->prepare("
             UPDATE p4_comments 
-            SET report = 1 
+            SET report = report + 1
             WHERE id = ?
         ");
         $reportComment->execute(array($comment_id));
