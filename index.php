@@ -26,6 +26,9 @@ if (isset($_GET['p'])) {
     }elseif ($_GET['p'] === 'logout'){
         $login = new AuthController();
         $login->logout();
+    }elseif ($_GET['p'] === 'report'){
+        $postEdit = new CommentsController();
+        $postEdit->reportComment();
     }elseif ($_GET['p'] === 'dashboard' && ($_SESSION['login']['user_status'] === 'admin')){
         $post = new PostsController();
         $post->displayPostsListAdmin();

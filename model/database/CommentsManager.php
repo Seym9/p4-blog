@@ -31,4 +31,14 @@ class CommentsManager extends Manager {
         $deletePost = $dbConnect->prepare('DELETE FROM p4_comments WHERE id = ?');
         $deletePost->execute(array($comment_id));
     }
+
+    public function reportComment ($comment_id) {
+        $dbConnect = $this->getDB();
+        $reportComment = $dbConnect->prepare("
+            UPDATE p4_comments 
+            SET report = 1 
+            WHERE id = ?
+        ");
+        $reportComment->execute(array($comment_id));
+    }
 }

@@ -8,7 +8,7 @@
         <a href="index.php?p=post-admin&id=<?= $posts["id"]?>">Voir</a>
         <p><?= $posts['date_fr'] ?></p>
         <a href="index.php?p=post-edit&id=<?= $posts["id"]?>">Edit</a>
-        <a href="index.php?p=post-delete&id=<?= $posts["id"]?>">Delete</a>
+        <a href="index.php?p=post-delete&id=<?= $posts["id"]?>" class="delete-post">Delete</a>
     </div>
 <?php endforeach; ?>
 <?php

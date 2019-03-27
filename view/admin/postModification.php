@@ -1,16 +1,17 @@
 <?php ob_start();
-    if (isset($_GET['id'])){
-        $title = $displayPost['post_title'];
-        $postContent = $displayPost['content'];
-        $action = 'index.php?p=post-edited&id=' . $displayPost['id'];
-    }else{
-        $title = "";
-        $postContent = "";
-        $action = "index.php?p=post-send";
-    }
+if (isset($_GET['id'])){
+    // $displayPost = $this->postAdmin();
+    $title = $displayPost['post_title'];
+    $postContent = $displayPost['content'];
+    $action = 'index.php?p=post-edited&id=' . $displayPost['id'];
+}else{
+    $title = "";
+    $postContent = "";
+    $action = "index.php?p=post-send";
+}
     ?>
     <div class="container">
-        <form action="<?= $action ?>" method="post">
+        <form action="<?= $action ?>" method="post" id="form-post">
             <div>
                 <label for="title-edit">Titre du post</label>
                 <input type="text" name="title" id="title-edit" value="<?= $title ?>">

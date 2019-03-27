@@ -22,4 +22,12 @@ class CommentsController{
             exit;
         }
     }
+
+    public function reportComment() {
+
+        $report = new CommentsManager();
+        $report->reportComment($_GET['report_com']);
+        header('Location: index.php');
+        exit;
+    }
 }

@@ -66,9 +66,11 @@ class PostEditController extends PostsController {
     public function deletePost() {
         if ($_GET['id']){
             $postManager = new PostsManager();
-            $deletePost = $postManager->deletePost($_GET['id']);
-            header('Location: index.php?p=dashboard');
-            exit;
+            $postManager->deletePost($_GET['id']);
+            echo json_encode('test');
+
+            //header('Location: index.php?p=dashboard');
+            //exit;
         }
     }
 

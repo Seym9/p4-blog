@@ -5,7 +5,7 @@
         <p><?= $displayPost['content'] ?></p>
     </div>
 <div class="container">
-    <form action="index.php?p=sendcomment&id_post=<?= $displayPost['id']?>" method="post">
+    <form action="index.php?p=sendcomment&id_post=<?= $displayPost['id']?>" method="post" id="form-comment">
         <div>
             <label for="author">Nom ou pseudo</label>
             <input name="author" type="text" id="author" placeholder="Votre nom">
@@ -20,8 +20,10 @@
     </form>
 </div>
 <?php foreach ($displayComments as $commentList) : ?>
+
 <?php if ($displayPost['id'] === $commentList['id_post']) : ?>
     <div class="container">
+        <a href="index.php?p=report&report_com=<?= $commentList['id'] ?>">report</a>
         <p><?= $commentList['date_fr'] ?></p>
         <p><?= $commentList['author'] ?></p>
         <p><?= $commentList['message'] ?></p>
