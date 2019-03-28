@@ -11,25 +11,17 @@
     <link rel="stylesheet" href="public/css/dashboard.css">
 </head>
 <body class="d-flex flex-column h-100">
-<header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Fixed navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active" style="display: flex">
-                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="index.php?p=login">Login</a>
-                    <a class="nav-link" href="index.php?p=dashboard">dashboard</a>
-                    <a class="nav-link" href="index.php?p=logout">logout</a>
-                </li>
-            </ul>
-        </div>
+
+<aside>
+    <nav>
+        <ul>
+            <li><a href="index.php">home</a></li>
+                <li><a href="index.php?p=login">login</a></li>
+                <li><a href="index.php?p=dashboard">dashboard</a></li>
+                <li><a href="index.php?p=logout">logout</a></li>
+        </ul>
     </nav>
-</header>
+</aside>
 
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
@@ -44,5 +36,6 @@
 <script src="public/js/tiny.js"></script>
 <script src="public/js/fr_FR.js"></script>
 <script src="public/js/deletePost.js"></script>
+<script src="public/js/actionStatus.js"></script>
 </body>
 </html>

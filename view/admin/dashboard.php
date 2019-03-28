@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<div class="container">
+<div class="container" id="dashboard-main-container">
     <a href="index.php?p=post-creation">Crée un post</a>
     <?php foreach ($displayList as $posts): ?>
     <div class="col-md-6" id="post-dashboard-container">

@@ -2,10 +2,9 @@ $(function () {
 
     $(".delete-post, .delete-com").on("click", function (e)  {
         e.preventDefault();
-        console.log(e);
         let targetEvent = $(e.target).parent().parent();
         let deleteClass = "";
-
+//changer le nom deleteClass
         if (e.target.href.includes("post")){
             deleteClass = "cet article";
         } else {
@@ -26,9 +25,15 @@ $(function () {
                                 targetEvent.remove();
                             });
                         });
+                        if (test === "success" && deleteClass.includes("article")){
+                            actionStatus("success","Cet article à bien été supprimé");
+                        } else if (test === "success" && deleteClass.includes("commentaire"))
+                            actionStatus("success","Ce commentaire à bien été supprimé");
+                        }else{
+                            actionStatus("error","Une erreur s'est produite");
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
     });
 });

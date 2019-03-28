@@ -11,3 +11,10 @@
     display: flex;
     justify-content: space-around;
 }
+
+.status-success{
+    color: blue;
+    position:fixed;
+    left: 50%;
+    top: 15%;
+ }

@@ -18,6 +18,7 @@
             <a href="index.php?p=delete-com&id=<?= $commentList['id_post']?>&id_com=<?= $commentList['id']?> " class="delete-com">delete</a>
             </div>
         </div>
+        <p>&#163</p>
     <?php endif ?>
 <?php endforeach; ?>
 <?php
