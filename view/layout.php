@@ -9,24 +9,27 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="public/css/dashboard.css">
+    <link rel="stylesheet" href="public/css/menu.css">
 </head>
-<body class="d-flex flex-column h-100">
-
-<aside>
-    <nav>
-        <ul>
-            <li><a href="index.php">home</a></li>
-                <li><a href="index.php?p=login">login</a></li>
-                <li><a href="index.php?p=dashboard">dashboard</a></li>
-                <li><a href="index.php?p=logout">logout</a></li>
+<body>
+<nav class="menu">
+    <div class="menu-container">
+        <ul class="menu-list">
+            <li class="menu-item"><a href="index.php" class="menu-link">home</a></li>
+            <li class="menu-item"><a href="index.php?p=login" class="menu-link">login</a></li>
+            <li class="menu-item"><a href="index.php?p=dashboard" class="menu-link">dashboard</a></li>
+            <li class="menu-item"><a href="index.php?p=logout" class="menu-link">logout</a></li>
+            <li class="menu-item"><a href="#" class="menu-link">X</a></li>
+            <li class="menu-item"><a href="#" class="menu-link">X</a></li>
         </ul>
-    </nav>
-</aside>
+    </div>
+    <a href="#" class="menu-toggle"><span class="menu-hamburger"></span></a>
+</nav>
 
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
     <div class="container">
-        <div class="starter-template" style="padding-top: 100px">
+        <div class="starter-template">
             <?= $content; ?>
         </div>
     </div>
@@ -37,5 +40,6 @@
 <script src="public/js/fr_FR.js"></script>
 <script src="public/js/deletePost.js"></script>
 <script src="public/js/actionStatus.js"></script>
+<script src="public/js/menu.js"></script>
 </body>
 </html>
