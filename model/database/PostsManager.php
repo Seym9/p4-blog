@@ -16,6 +16,17 @@ class PostsManager extends Manager {
         $postsList = $request->fetchAll();
         return $postsList;
     }
+    public function getPostsListHome() {
+        $dbConnect = $this->getDB();
+        $request = $dbConnect->query("
+            SELECT id ,post_title, content , DATE_FORMAT(post_date, '%d/%m/%Y') as date_fr
+            FROM p4_posts 
+            ORDER BY post_date DESC
+            LIMIT 3
+        ");
+        $postsList = $request->fetchAll();
+        return $postsList;
+    }
 
     /**
      * @param $post_id

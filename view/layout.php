@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -8,28 +7,42 @@
     <title>Mon blog</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/home.css">
     <link rel="stylesheet" href="public/css/dashboard.css">
     <link rel="stylesheet" href="public/css/menu.css">
+    <link rel="stylesheet" href="public/css/snow.css">
 </head>
 <body>
-<nav class="menu">
-    <div class="menu-container">
-        <ul class="menu-list">
-            <li class="menu-item"><a href="index.php" class="menu-link">home</a></li>
-            <li class="menu-item"><a href="index.php?p=login" class="menu-link">login</a></li>
-            <li class="menu-item"><a href="index.php?p=dashboard" class="menu-link">dashboard</a></li>
-            <li class="menu-item"><a href="index.php?p=logout" class="menu-link">logout</a></li>
-            <li class="menu-item"><a href="#" class="menu-link">X</a></li>
-            <li class="menu-item"><a href="#" class="menu-link">X</a></li>
-        </ul>
+<div class="snow">
+    <div class="snow__layer"><div class="snow__fall"></div></div>
+    <div class="snow__layer"><div class="snow__fall"></div></div>
+    <div class="snow__layer">
+        <div class="snow__fall"></div>
+        <div class="snow__fall"></div>
+        <div class="snow__fall"></div>
     </div>
-    <a href="#" class="menu-toggle"><span class="menu-hamburger"></span></a>
-</nav>
-
-<!-- Begin page content -->
-<main role="main" class="flex-shrink-0">
-    <div class="container">
-        <div class="starter-template">
+    <div class="snow__layer"><div class="snow__fall"></div></div>
+</div>
+<!-- menu -->
+<div class="menu">
+    <input type="checkbox" name="menuburger" id="menuburger">
+    <label for="menuburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </label>
+    <nav class="nav-menu">
+        <a class="nav-link" href="index.php">Home</a>
+        <a class="nav-link" href="index.php?p=login">Login</a>
+        <a class="nav-link" href="index.php?p=dashboard">dashboard</a>
+        <a class="nav-link" href="index.php?p=logout">logout</a>
+    </nav>
+</div>
+<!-- Begin page content-->
+<main role="main" class="site-container">
+    <div class="container" class="site-container">
+        <div class="container">
             <?= $content; ?>
         </div>
     </div>

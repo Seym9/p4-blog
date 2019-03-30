@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: url("../../public/img/wall.jpg")center / cover no-repeat fixed;
+    justify-content: center;
+    align-items: center;
+}
+.testbl{
+   padding-top: 50%;
+}
+.site-container{
+    height: 100%;
+    min-height: 100%;
+}
+#main-home-container{
+    position: inherit;
+    height: 100%;
+    min-height: 100%;
+    padding-top: 25%;
+}
+#home-welcome-msg{
+    background-color: aliceblue;
+}
+
+#home-post-container{
+    margin-top: 35%;
+    display: flex;
+}
+#home-post-container h3{
+    text-align: center;
+}
+#home-post{
+    background-color: aquamarine;
+    padding: 5px;
+    margin: 5px 0 5px 0;
+}

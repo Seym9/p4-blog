@@ -12,6 +12,12 @@ class PostsController {
         require "view/page/home.php";
     }
 
+    public function displayPostsListHome() {
+        $postsList = new PostsManager();
+        $displayList = $postsList->getPostsListHome();
+        require "view/page/home.php";
+    }
+
     public function displayPost(){
 
         if (isset($_GET['id'])){
