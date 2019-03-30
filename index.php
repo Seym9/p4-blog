@@ -56,5 +56,5 @@ if (isset($_GET['p'])) {
     }
 } else {
     $posts = new PostsController();
-    $posts->displayPostsList();
+    $posts->displayPostsListHome();
 }

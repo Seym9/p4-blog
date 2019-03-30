@@ -14,17 +14,9 @@
     <link rel="stylesheet" href="public/css/snow.css">
 </head>
 <body>
-<div class="snow">
-    <div class="snow__layer"><div class="snow__fall"></div></div>
-    <div class="snow__layer"><div class="snow__fall"></div></div>
-    <div class="snow__layer">
-        <div class="snow__fall"></div>
-        <div class="snow__fall"></div>
-        <div class="snow__fall"></div>
-    </div>
-    <div class="snow__layer"><div class="snow__fall"></div></div>
-</div>
+
 <!-- menu -->
+
 <div class="menu">
     <input type="checkbox" name="menuburger" id="menuburger">
     <label for="menuburger">
@@ -40,9 +32,9 @@
     </nav>
 </div>
 <!-- Begin page content-->
-<main role="main" class="site-container">
-    <div class="container" class="site-container">
-        <div class="container">
+<main role="main" class="site-container ">
+    <div class="container site-container">
+        <div class="container jumbotron site-container" >
             <?= $content; ?>
         </div>
     </div>
@@ -53,6 +45,5 @@
 <script src="public/js/fr_FR.js"></script>
 <script src="public/js/deletePost.js"></script>
 <script src="public/js/actionStatus.js"></script>
-<script src="public/js/menu.js"></script>
 </body>
 </html>

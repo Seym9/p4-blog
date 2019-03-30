@@ -4,10 +4,10 @@
     <?php foreach ($displayList as $posts): ?>
     <div class="col-md-6" id="post-dashboard-container">
         <div id="title-date-dashboard">
-            <h2><?= $posts['post_title'] ?></h2>
-            <p><?= $posts['date_fr'] ?></p>
+            <h2><?= strip_tags($posts['post_title']) ?></h2>
+            <p><?= strip_tags($posts['date_fr']) ?></p>
         </div>
-        <p><?= substr($posts['content'], 0 , 200) . "..."; ?></p>
+        <p><?= strip_tags(substr($posts['content'], 0 , 200)) . "..."; ?></p>
         <div id="link-post-dashboard" class="link-dash">
             <a href="index.php?p=post-admin&id=<?= $posts["id"]?>">Voir</a>
             <a href="index.php?p=post-edit&id=<?= $posts["id"]?>">Edit</a>
