@@ -27,7 +27,7 @@ class CommentsController{
 
         $report = new CommentsManager();
         $report->reportComment($_GET['report_com']);
-        header('Location: index.php');
+        header('Location: index.php?p=post&id=' . $_GET['id_post']);
         exit;
     }
 }

@@ -41,4 +41,12 @@ class CommentsManager extends Manager {
         ");
         $reportComment->execute(array($comment_id));
     }
+    public function commentNumber($id_post) {
+        $db = $this->getDB();
+        $q = $db->prepare('SELECT COUNT(*) AS nb_comments FROM p4_comments WHERE id_post = ?');
+        $q->execute([$id_post]);
+        $nbOfComments = $q->fetch();
+
+        return $nbOfComments;
+    }
 }

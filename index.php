@@ -4,6 +4,7 @@ define('ROOT', __DIR__);
 require 'Autoloader.php';
 use App\Autoloader;
 use App\controller\AuthController;
+use App\controller\DashboardController;
 use App\Controller\PostsController;
 use App\Controller\CommentsController;
 use App\Controller\PostEditController;
@@ -33,8 +34,8 @@ if (isset($_GET['p'])) {
         $postEdit = new CommentsController();
         $postEdit->reportComment();
     }elseif ($_GET['p'] === 'dashboard' && ($_SESSION['login']['user_status'] === 'admin')){
-        $post = new PostsController();
-        $post->displayPostsListAdmin();
+        $post = new DashboardController();
+        $post->dashboardPost();
     }elseif ($_GET['p'] === 'post-send' && ($_SESSION['login']['user_status'] === 'admin')){
         $postEdit = new PostEditController();
         $postEdit->sendingPost();

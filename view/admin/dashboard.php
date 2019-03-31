@@ -1,23 +1,70 @@
 <?php ob_start(); ?>
-<div class="container" id="dashboard-main-container">
-    <a href="index.php?p=post-creation">Crée un post</a>
-    <?php foreach ($displayList as $posts): ?>
-    <div class="col-md-6" id="post-dashboard-container">
-        <div id="title-date-dashboard">
-            <h2><?= strip_tags($posts['post_title']) ?></h2>
-            <p><?= strip_tags($posts['date_fr']) ?></p>
-        </div>
-        <p><?= strip_tags(substr($posts['content'], 0 , 200)) . "..."; ?></p>
-        <div id="link-post-dashboard" class="link-dash">
-            <a href="index.php?p=post-admin&id=<?= $posts["id"]?>">Voir</a>
-            <a href="index.php?p=post-edit&id=<?= $posts["id"]?>">Edit</a>
-            <a href="index.php?p=post-delete&id=<?= $posts["id"]?>" class="delete-post">Delete</a>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <button class="btn btn-primary">Post</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary">Commentaires</button>
+                </li>
+            </ul>
         </div>
     </div>
-    <?php endforeach; ?>
-    <div class="col-md-4" id="comment-dashboard-container">
-        <div>
-            test
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        Titre
+                    </th>
+                    <th>
+                        Commentaire
+                    </th>
+                    <th>
+                        Signalés
+                    </th>
+                    <th>
+                        Date de création
+                    </th>
+                    <th>
+                        Options
+                    </th>
+                </tr>
+                </thead>
+                <?php foreach ($displayList as $posts): ?>
+
+                <tbody>
+                <tr>
+                    <td>
+                        <?= strip_tags($posts['post_title']) ?>
+                    </td>
+
+
+                    <td>
+
+                    </td>
+
+                    <td>
+
+                    </td>
+
+
+                    <td>
+                        <?= strip_tags($posts['date_fr']) ?>
+                    </td>
+                    <td>
+                        <a href="index.php?p=post-admin&id=<?= $posts["id"]?>" class="btn btn-primary">Voir</a>
+                        <a href="index.php?p=post-edit&id=<?= $posts["id"]?>" class="btn btn-primary">Edit</a>
+                        <a href="index.php?p=post-delete&id=<?= $posts["id"]?>" class="delete-post btn btn-primary">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+                <?php endforeach;?>
+            </table>
         </div>
     </div>
 </div>
@@ -25,23 +72,3 @@
 $content = ob_get_clean();
 require "view/layout.php";
 ?>
-<div class="album" id="home-post-container"> <!-- "bg-light" class fond blanc -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-
-                    <p class="card-text"><?=substr($postList['content'], 0 , 50) . "...";?></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href=index.php?p=post&id=<?= $postList["id"]?>" type="button" class="btn btn-sm btn-outline-secondary">Voir l'article</a>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-muted">9 mins</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>

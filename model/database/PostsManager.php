@@ -22,7 +22,7 @@ class PostsManager extends Manager {
             SELECT id ,post_title, content , DATE_FORMAT(post_date, '%d/%m/%Y') as date_fr
             FROM p4_posts 
             ORDER BY post_date DESC
-            LIMIT 3
+            LIMIT 1
         ");
         $postsList = $request->fetchAll();
         return $postsList;

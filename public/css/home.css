@@ -11,6 +11,10 @@ body{
     height: 100%;
     min-height: 100%;
 }
+
+#home-welcome{
+    margin-top: 30%;
+}
 #home-post-container{
     display: flex;
 
@@ -21,10 +25,8 @@ body{
 #home-post-container p{
     font-size: 12px;
 }
-#home-post{
-    background-color: aquamarine;
-    padding: 5px;
-    margin: 5px 0 5px 0;
+#note-home{
+margin-top: 20%;
 }
 
 @media all and (max-width: 770px){
