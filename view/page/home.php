@@ -1,4 +1,7 @@
 <?php ob_start(); ?>
+    <main role="main" class="site-container ">
+        <div class="container site-container">
+            <div class="container jumbotron site-container" >
     <div class="snow">
         <div class="snow__layer"><div class="snow__fall"></div></div>
         <div class="snow__layer"><div class="snow__fall"></div></div>
@@ -52,7 +55,9 @@
         </div>
     </div>
 </div>
-
+            </div>
+        </div>
+    </main>
 <?php
 $content = ob_get_clean();
 require "view/layout.php";

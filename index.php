@@ -20,6 +20,9 @@ if (isset($_GET['p'])) {
     } elseif ($_GET['p'] === 'sendcomment'){
         $comment = new CommentsController();
         $comment->sendComment();
+    }elseif ($_GET['p'] === 'login-page'){
+        $login = new AuthController();
+        $login->loginPage();
     }elseif ($_GET['p'] === 'login'){
         $login = new AuthController();
         $login->login();

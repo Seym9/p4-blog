@@ -1,23 +1,33 @@
 <?php ob_start(); ?>
-<form class="form-signin">
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3>Connexion</h3>
+            </div>
+            <div class="card-body">
+                <form action="index.php?p=login" method="post">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="username" name="login">
 
-    <div class="form-label-group">
-        <input type="text" class="form-control" placeholder="Email address" name="login" required autofocus>
-        <label for="inputEmail">Identifiant</label>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="password" name="pass">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn float-right login_btn">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pass" required>
-        <label for="inputPassword">Mot de passe</label>
-    </div>
-
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-</form>
+</div>
 <?php
 $content = ob_get_clean();
 require "view/layout.php";

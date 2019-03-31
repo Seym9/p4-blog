@@ -5,6 +5,10 @@ use App\model\database\AuthManager;
 
 class AuthController {
 
+    public function loginPage(){
+        require "view/page/login.php";
+    }
+
     public function login(){
         if (isset($_POST['login']) && isset($_POST['pass'])){
             $startAuth = new AuthManager();
