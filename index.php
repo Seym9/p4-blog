@@ -39,6 +39,9 @@ if (isset($_GET['p'])) {
     }elseif ($_GET['p'] === 'dashboard' && ($_SESSION['login']['user_status'] === 'admin')){
         $post = new DashboardController();
         $post->dashboardPost();
+    }elseif ($_GET['p'] === 'dashboard-comments' && ($_SESSION['login']['user_status'] === 'admin')){
+        $post = new DashboardController();
+        $post->displayListComDashboard();
     }elseif ($_GET['p'] === 'post-send' && ($_SESSION['login']['user_status'] === 'admin')){
         $postEdit = new PostEditController();
         $postEdit->sendingPost();

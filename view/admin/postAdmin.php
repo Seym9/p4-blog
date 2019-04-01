@@ -36,7 +36,6 @@
                     <h3>Commentaires</h3>
                 </div>
             </div>
-
             <?php foreach ($displayComments as $commentList) : ?>
                 <div class="row mt-3">
                     <div class="col-md-1">
@@ -45,7 +44,8 @@
                         <div class="col-md-8 card">
                             <div class="btn-warning-post">
                                 <i class="fas fa-exclamation-triangle"></i>
-                                <a href="index.php?p=delete-com&id=<?= $commentList['id_post']?>&id_com=<?= $commentList['id']?>" class="btn btn-danger btn-xs" >Supprimer </a>
+                                <a href="index.php?p=delete-com&id=<?= $commentList['id_post']?>&id_com=<?= $commentList['id']?> " class="delete-com btn btn-danger btn-xs">delete</a>
+
                             </div>
                             <div class="row">
                                 <div class="col-md-8">

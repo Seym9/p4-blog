@@ -49,4 +49,14 @@ class CommentsManager extends Manager {
 
         return $nbOfComments;
     }
+    public function getCommentsListDashboard() {
+        $dbConnect = $this->getDB();
+        $request = $dbConnect->query("
+            SELECT id, author, message, id_post, report, DATE_FORMAT(comment_date, '%d/%m/%Y') as date_fr
+            FROM p4_comments
+            ORDER BY report DESC
+        ");
+        $commentsListDash = $request->fetchAll();
+        return $commentsListDash;
+    }
 }

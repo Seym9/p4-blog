@@ -5,10 +5,7 @@
         <div class="col-md-12">
             <ul class="nav nav-pills justify-content-center">
                 <li class="nav-item">
-                    <button class="btn btn-primary">Post</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-primary">Commentaires</button>
+                    <a href="index.php?p=dashboard-comments" class="btn btn-primary">com</a>
                 </li>
             </ul>
         </div>

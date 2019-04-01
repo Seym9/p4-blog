@@ -18,6 +18,11 @@ class DashboardController extends PostsController {
 
         require "view/admin/dashboard.php";
     }
+    public function displayListComDashboard() {
+        $list = new CommentsManager();
+        $displayListCom = $list->getCommentsListDashboard();
 
+        require "view/admin/dashboardComments.php";
+    }
 
 }
