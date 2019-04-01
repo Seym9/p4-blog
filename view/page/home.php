@@ -21,7 +21,7 @@
                 <p class="lead text-muted">Installez vous et plonger dans son univers </p>
 
                 <div class="btn-group">
-                    <a href="#" type="button" class="btn btn-primary my-2" >Voir tout les chapitres</a>
+                    <a href="index.php?p=post-list" type="button" class="btn btn-primary my-2" >Voir tout les chapitres</a>
                 </div>
             <div class="btn-group">
                     <a href="#" type="button" class="btn btn-primary my-2 first" >Apprenez en plus sur l'auteur</a>

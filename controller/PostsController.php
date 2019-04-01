@@ -9,7 +9,7 @@ class PostsController {
     public function displayPostsList() {
         $postsList = new PostsManager();
         $displayList = $postsList->getPostsList();
-        require "view/page/home.php";
+        require "view/page/postList.php";
     }
 
     public function displayPostsListHome() {

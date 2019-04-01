@@ -33,6 +33,9 @@ if (isset($_GET['p'])) {
     }elseif ($_GET['p'] === 'report'){
         $postEdit = new CommentsController();
         $postEdit->reportComment();
+    }elseif ($_GET['p'] === 'post-list'){
+        $postEdit = new PostsController();
+        $postEdit->displayPostsList();
     }elseif ($_GET['p'] === 'dashboard' && ($_SESSION['login']['user_status'] === 'admin')){
         $post = new DashboardController();
         $post->dashboardPost();

@@ -10,8 +10,8 @@ $(function() {
 
         function loop(currentTime) {
             if (startTime === null) startTime = currentTime;
-            var timeElapsed = currentTime - startTime;
-            var run = ease(timeElapsed, startPosition, distance, 2000);
+            let timeElapsed = currentTime - startTime;
+            let run = ease(timeElapsed, startPosition, distance, 2000);
             window.scrollTo(0, run);
             if (timeElapsed < 2000) requestAnimationFrame(loop);
         }

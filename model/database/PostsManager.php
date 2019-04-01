@@ -11,7 +11,7 @@ class PostsManager extends Manager {
         $request = $dbConnect->query("
             SELECT id ,post_title, content , DATE_FORMAT(post_date, '%d/%m/%Y') as date_fr
             FROM p4_posts 
-            ORDER BY post_date DESC    
+            ORDER BY post_date ASC    
         ");
         $postsList = $request->fetchAll();
         return $postsList;

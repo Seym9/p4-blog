@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: url("../../public/img/post-list.jpg")center / cover no-repeat fixed;
+    justify-content: center;
+    align-items: center;
+}
