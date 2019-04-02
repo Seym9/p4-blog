@@ -1,5 +1,5 @@
 <?php
-namespace App\model\database;
+namespace App\Model\Database;
 
 class CommentsManager extends Manager {
 

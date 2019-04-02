@@ -1,7 +1,7 @@
 <?php
-namespace App\Controller;
+namespace App\controller;
 
-use App\model\database\CommentsManager;
+use App\Model\Database\CommentsManager;
 
 class CommentsController{
 

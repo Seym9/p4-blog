@@ -8,10 +8,11 @@ class Autoloader {
     }
 
     static function autoload($class) {
+       // echo $class . '<br>';
         if (strpos($class, __NAMESPACE__. '\\') === 0) {
             $class = str_replace(__NAMESPACE__. '\\','',$class);
-            $class = str_replace('\\','/',$class);
-            require ROOT . '/' . $class . '.php';
+            $class = str_replace('\\','/',$class );
+            require __DIR__ . '/' . $class . '.php';
         }
     }
 

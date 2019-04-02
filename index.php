@@ -1,20 +1,19 @@
 <?php
-define('ROOT', __DIR__);
+session_start();
+require_once 'Autoloader.php';
 
-require 'Autoloader.php';
 use App\Autoloader;
 use App\controller\AuthController;
 use App\controller\DashboardController;
-use App\Controller\PostsController;
-use App\Controller\CommentsController;
-use App\Controller\PostEditController;
+use App\controller\PostsController;
+use App\controller\CommentsController;
+use App\controller\PostEditController;
 
 Autoloader::register();
 
-session_start();
+
 
 if (isset($_GET['p'])) {
-
     if ($_GET['p'] === 'post') {
         $post = new PostsController();
         $post->displayPost();

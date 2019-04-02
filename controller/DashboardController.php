@@ -4,7 +4,7 @@
 namespace App\controller;
 
 
-use App\model\database\CommentsManager;
+use App\Model\Database\CommentsManager;
 use App\Model\Database\PostsManager;
 
 class DashboardController extends PostsController {

@@ -1,7 +1,7 @@
 <?php
 namespace App\controller;
 
-use App\model\database\AuthManager;
+use App\Model\Database\AuthManager;
 
 class AuthController {
 
@@ -15,6 +15,8 @@ class AuthController {
             $verifAuth = $startAuth->getAuth($_POST['login']);
 
             if (password_verify($_POST['pass'], $verifAuth['pass'])){
+                echo ($_POST);
+
                 $_SESSION['login'] = $verifAuth;
                 header('Location: index.php?p=dashboard');
             }

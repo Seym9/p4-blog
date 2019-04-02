@@ -1,6 +1,6 @@
 <?php
 
-namespace App\model\database;
+namespace App\Model\Database;
 
 class AuthManager extends Manager {
 
@@ -11,6 +11,7 @@ class AuthManager extends Manager {
             FROM p4_users
             WHERE login = ?
        ");
+       echo "après log" . '<br>';
        $request->execute(array($login));
        $user = $request->fetch();
        return $user;
