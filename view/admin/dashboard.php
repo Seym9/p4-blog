@@ -33,6 +33,7 @@
                 </tr>
                 </thead>
                 <?php foreach ($displayList as $posts): ?>
+                <?php foreach ($displayNbOfComment as $com_nb): ?>
 
                 <tbody>
                 <tr>
@@ -41,15 +42,16 @@
                     </td>
 
 
+                    <?php if (($com_nb['id_post']) === ($posts['id'])) : ?>
                     <td>
-
+                        <?= $com_nb['nb_comments '] ?>
                     </td>
 
                     <td>
 
                     </td>
 
-
+                        <?php endif ?>
                     <td>
                         <?= strip_tags($posts['date_fr']) ?>
                     </td>
@@ -60,6 +62,7 @@
                     </td>
                 </tr>
                 </tbody>
+                <?php endforeach;?>
                 <?php endforeach;?>
             </table>
         </div>

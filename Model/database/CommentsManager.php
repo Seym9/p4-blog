@@ -32,23 +32,34 @@ class CommentsManager extends Manager {
         $deletePost->execute(array($comment_id));
     }
 
-    public function reportComment ($comment_id) {
+    public function reportComment($comment_id) {
+//        var_dump($comment_id);
+//        die();
+
         $dbConnect = $this->getDB();
         $reportComment = $dbConnect->prepare("
-            UPDATE p4_comments 
+            UPDATE p4_comments
             SET report = report + 1
             WHERE id = ?
         ");
         $reportComment->execute(array($comment_id));
     }
-    public function commentNumber($id_post) {
-        $db = $this->getDB();
-        $q = $db->prepare('SELECT COUNT(*) AS nb_comments FROM p4_comments WHERE id_post = ?');
-        $q->execute([$id_post]);
-        $nbOfComments = $q->fetch();
 
-        return $nbOfComments;
-    }
+//    public function commentNumber() {
+//        $db = $this->getDB();
+//        $q = $db->prepare('
+//            SELECT COUNT(*)
+//            AS nb_comments
+//            FROM p4_comments
+//            WHERE id_post
+//          IN (SELECT id AS id_post FROM p4_posts)');
+//        $q->execute();
+//        $nbOfComments = $q->fetch();
+//
+//        return $nbOfComments;
+//    }
+
+
     public function getCommentsListDashboard() {
         $dbConnect = $this->getDB();
         $request = $dbConnect->query("

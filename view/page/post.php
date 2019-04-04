@@ -73,7 +73,7 @@
                 <div class="col-md-8 card">
                     <div class="btn-warning-post">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <a href="index.php?p=report&report_com=<?= $commentList['id'] ?>&id_post=<?= $commentList['id_post']?>" class="btn btn-danger btn-xs" >Signaler</a>
+                        <a href="index.php?p=report&report_com=<?= $commentList['id'] ?>&id_post=<?= $displayPost['id']?>" class="btn btn-danger btn-xs report" >Signaler</a>
                     </div>
                     <div class="row">
                         <div class="col-md-8">

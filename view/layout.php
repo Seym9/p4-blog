@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="public/css/menu.css">
     <link rel="stylesheet" href="public/css/snow.css">
     <link rel="stylesheet" href="public/css/post.css">
+    <link rel="stylesheet" href="public/css/bootstrap.css">
 
 
     <?php if (isset($_GET['p']) && ($_GET['p'] === "login-page")): ?>
@@ -61,8 +62,8 @@
 
         <?= $content; ?>
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=m4qzhaq03qnt02y3ound5ezanr4pkeviniqg102r49217omn"></script>
 <script src="public/js/menu.js"></script>
 <script src="public/js/tiny.js"></script>
@@ -70,5 +71,6 @@
 <script src="public/js/deletePost.js"></script>
 <script src="public/js/actionStatus.js"></script>
 <script src="public/js/scroll.js"></script>
+<script src="public/js/report.js"></script>
 </body>
 </html>

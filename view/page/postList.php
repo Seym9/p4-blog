@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -12,23 +12,20 @@ uu
                     </p>
                 </div>
             </div>
-            <?php foreach ($displayList as $postsList) :?>
+            <?php foreach ($displayList as $list) :?>
             <div class="row">
                 <div class="card text-center col-md-12 jumbotron">
                     <h3>
-                        <?= ucfirst($postsList['post_title']) ?>
+                        <?= ucfirst($list->getTitle()) ?>
                     </h3>
                     <p class="text-center mt-5">
-                        <?= strip_tags(substr($postsList['content'],0,350)) . "..." ?>
+                        <?= strip_tags(substr($list->getContent(),0,350)) . "..." ?>
                     </p>
-                    <a href="index.php?p=post&id=<?= $postsList["id"]?>" class="btn btn-primary">Lire le chapitre</a>
+                    <a href="index.php?p=post&id=<?= $list->getId()?>" class="btn btn-primary">Lire le chapitre</a>
                 </div>
             </div>
             <?php endforeach ?>
         </div>
     </div>
 </div>
-<?php
-$content = ob_get_clean();
-require "view/layout.php";
-?>
+

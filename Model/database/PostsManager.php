@@ -1,21 +1,37 @@
 <?php
 namespace App\Model\Database;
 
+use App\Model\Post;
+
 class PostsManager extends Manager {
 
     /**
-     * @return array
+     * @return Post[]
      */
     public function getPostsList() {
         $dbConnect = $this->getDB();
         $request = $dbConnect->query("
-            SELECT id ,post_title, content , DATE_FORMAT(post_date, '%d/%m/%Y') as date_fr
+            SELECT id ,post_title, content , post_date
             FROM p4_posts 
             ORDER BY post_date ASC    
         ");
-        $postsList = $request->fetchAll();
-        return $postsList;
+
+        $posts = [];
+
+        while ($post = $request->fetch()){
+
+            $postFeatures = [
+              'id' => $post['id'],
+              'title' => $post['post_title'],
+              'content' => $post['post_date']
+            ];
+            $posts[] = new Post($postFeatures);
+        }
+        return $posts;
     }
+
+
+
     public function getPostsListHome() {
         $dbConnect = $this->getDB();
         $request = $dbConnect->query("

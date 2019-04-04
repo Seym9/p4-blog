@@ -4,12 +4,13 @@ namespace App\controller;
 use App\Model\Database\CommentsManager;
 use App\Model\Database\PostsManager;
 
-class PostsController {
+class PostsController extends MainController {
 
     public function displayPostsList() {
         $postsList = new PostsManager();
         $displayList = $postsList->getPostsList();
-        require "view/page/postList.php";
+        $this->render(['page/postList'], compact('displayList'));
+        //require "view/page/postList.php";
     }
 
     public function displayPostsListHome() {

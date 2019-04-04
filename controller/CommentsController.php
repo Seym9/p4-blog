@@ -25,8 +25,12 @@ class CommentsController{
 
     public function reportComment() {
 
-        $report = new CommentsManager();
-        $report->reportComment($_GET['report_com']);
+        if (isset($_GET["id_post"])){
+            $report = new CommentsManager();
+            $report->reportComment($_GET['report_com']);
+            //echo json_encode('success');
+        }
+
         header('Location: index.php?p=post&id=' . $_GET['id_post']);
         exit;
     }

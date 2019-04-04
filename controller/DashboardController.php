@@ -14,7 +14,8 @@ class DashboardController extends PostsController {
         $postsList = new PostsManager();
 
         $displayList = $postsList->getPostsList();
-        //$displayNbOfComment = $comments->commentNumber();
+        $displayNbOfComment = $comments->commentNumber();
+
 
         require "view/admin/dashboard.php";
     }
