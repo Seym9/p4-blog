@@ -1,7 +1,6 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <?php foreach ($displayPost as $post) : ?>
             <div class="row">
                 <div class="col-md-1">
                 </div>
@@ -21,7 +20,6 @@
                         <?= $post->getContent() ?>
                     </p>
                 </div>
-                <?php endforeach ?>
                 <div class="col-md-3">
                     <ul>
                         <li class="list-item">
@@ -66,33 +64,24 @@
             </div>
 
             <!--($displayComments as $commentList)-->
-
+            <?php foreach ($comments as $comment): ?>
             <div class="row mt-3">
                 <div class="col-md-1">
                 </div>
-
-                 <!--($post->getId() === $commentList['id']) -->
                 <div class="col-md-8 card">
                     <div class="btn-warning-post">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <a href="index.php?p=report&report_com= <!--$commentList->getId()--> &id_post= <!--$post->getId()-->" class="btn btn-danger btn-xs report" >Signaler</a>
+                        <a href="index.php?p=report&report_com=<?=$comment->getId()?>&id_post=<?=$post->getId()?>" class="btn btn-danger btn-xs report" >Signaler</a>
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-
-                            <h3>
-                               <!-- $commentList->getAuthor() -->
-                            </h3>
+                            <h3><?= $comment->getAuthor() ?></h3>
                         </div>
                     </div>
-
-                    <p>
-                         <!--$commentList->getMessage()-->
-                    </p>
+                    <p><?= $comment->getMessage() ?></p>
                 </div>
-                <!-- endif-->
             </div>
-            <!--endforeach-->
+            <?php endforeach ?>
         </div>
     </div>
 </div>

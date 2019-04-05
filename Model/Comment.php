@@ -8,8 +8,8 @@ class Comment{
     private $_id;
     private $_author;
     private $_message;
-    private $_id_post;
-    private $_comment_date;
+    private $_idPost;
+    private $_commentDate;
 
     public function __construct(array $comment) {
         $this->hydrate($comment);
@@ -75,15 +75,15 @@ class Comment{
      */
     public function getIdPost(): int
     {
-        return $this->_id_post;
+        return $this->_idPost;
     }
 
     /**
-     * @param mixed $id_post
+     * @param int $idPost
      */
-    public function setIdPost(int $id_post)
+    public function setIdPost(int $idPost)
     {
-        $this->_id_post = $id_post;
+        $this->_idPost = $idPost;
     }
 
     /**
@@ -91,15 +91,16 @@ class Comment{
      */
     public function getCommentDate(): string
     {
-        return $this->_comment_date;
+        return $this->_commentDate;
     }
 
     /**
-     * @param mixed $comment_date
+     * @param string $commentDate
+     * @throws \Exception
      */
-    public function setCommentDate(string $comment_date)
+    public function setCommentDate(string $commentDate)
     {
-        $this->_comment_date = new dateTime($comment_date);
+        $this->_commentDate = new DateTime($commentDate);
     }
 
 

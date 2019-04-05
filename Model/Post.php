@@ -35,8 +35,12 @@ class Post {
             $this->_content = $content;
     }
 
-    public function setCreationDate(string $_date) {
-            $this->_date = new dateTime($_date);
+    /**
+     * @param $_date
+     * @throws \Exception
+     */
+    public function setCreationDate($_date) {
+            $this->_date = new DateTime($_date);
 
     }
 

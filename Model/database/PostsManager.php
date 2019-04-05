@@ -31,8 +31,6 @@ class PostsManager extends Manager {
         return $posts;
     }
 
-
-
     public function getPostsListHome() {
         $dbConnect = $this->getDB();
         $request = $dbConnect->query("
@@ -58,7 +56,7 @@ class PostsManager extends Manager {
 
     /**
      * @param $post_id
-     * @return mixed
+     * @return Post
      */
     public function getPost($post_id) {
         $dbConnect = $this->getDB();
@@ -67,19 +65,21 @@ class PostsManager extends Manager {
             FROM p4_posts 
             WHERE id = ?");
         $request->execute([$post_id]);
-        $posts = [];
 
-        while ($post = $request->fetch()){
+        $post = $request->fetch();
 
-            $postFeatures = [
-                'id' => $post['id'],
-                'title' => $post['post_title'],
-                'content' => $post['content'],
-                'date' => $post['post_date']
-            ];
-            $posts[] = new Post($postFeatures);
-        }
-        return $posts;
+        $postFeatures = [
+            'id' => $post['id'],
+            'title' => $post['post_title'],
+            'content' => $post['content'],
+            'date' => $post['post_date']
+        ];
+
+        $post = new Post($postFeatures);
+
+        //var_dump($post);
+       // die();
+        return $post;
     }
 
     public function sendPost($post_title, $content){

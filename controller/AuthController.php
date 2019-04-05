@@ -23,7 +23,6 @@ class AuthController {
         }else{
             echo 'error';
         }
-        require "view/page/login.php";
     }
 
     public function logout() {

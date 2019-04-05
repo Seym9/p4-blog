@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -33,42 +31,35 @@
                 </tr>
                 </thead>
                 <?php foreach ($displayList as $posts): ?>
-                <?php foreach ($displayNbOfComment as $com_nb): ?>
+
 
                 <tbody>
                 <tr>
                     <td>
-                        <?= strip_tags($posts['post_title']) ?>
-                    </td>
-
-
-                    <?php if (($com_nb['id_post']) === ($posts['id'])) : ?>
-                    <td>
-                        <?= $com_nb['nb_comments '] ?>
+                        <?= strip_tags($posts->getTitle()) ?>
                     </td>
 
                     <td>
 
                     </td>
 
-                        <?php endif ?>
                     <td>
-                        <?= strip_tags($posts['date_fr']) ?>
+
+                    </td>
+
+                    <td>
+                        <?= strip_tags($posts->getPostDate()) ?>
                     </td>
                     <td>
-                        <a href="index.php?p=post-admin&id=<?= $posts["id"]?>" class="btn btn-primary">Voir</a>
-                        <a href="index.php?p=post-edit&id=<?= $posts["id"]?>" class="btn btn-primary">Edit</a>
-                        <a href="index.php?p=post-delete&id=<?= $posts["id"]?>" class="delete-post btn btn-primary">Delete</a>
+                        <a href="index.php?p=post-admin&id=<?= $posts->getId()?>" class="btn btn-primary">Voir</a>
+                        <a href="index.php?p=post-edit&id=<?= $posts->getId()?>" class="btn btn-primary">Edit</a>
+                        <a href="index.php?p=post-delete&id=<?= $posts->getId()?>" class="delete-post btn btn-primary">Delete</a>
                     </td>
                 </tr>
                 </tbody>
                 <?php endforeach;?>
-                <?php endforeach;?>
+
             </table>
         </div>
     </div>
 </div>
-<?php
-$content = ob_get_clean();
-require "view/layout.php";
-?>

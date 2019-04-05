@@ -22,12 +22,12 @@ class PostsController extends MainController {
 
         if (isset($_GET['id'])){
 
-            $post = new PostsManager();
-            $comments = new CommentsManager();
-            $displayPost = $post->getPost($_GET['id']);
-            $displayComments = $comments->getComments($_GET['id']);
+            $postManager = new PostsManager();
+            $commentManager = new CommentsManager();
+            $post = $postManager->getPost($_GET['id']);
+            $comments = $commentManager->getComments($_GET['id']);
 
-            $this->render(['page/post'], compact('displayPost','displayComments' ));
+            $this->render(['page/post'], compact('post','comments' ));
 
             //require "view/page/post.php";
         } else {

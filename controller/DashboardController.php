@@ -10,14 +10,13 @@ use App\Model\Database\PostsManager;
 class DashboardController extends PostsController {
 
     public function dashboardPost() {
-        $comments = new CommentsManager();
+        //$comments = new CommentsManager();
         $postsList = new PostsManager();
-
         $displayList = $postsList->getPostsList();
-        $displayNbOfComment = $comments->commentNumber();
+       // $displayNbOfComment = $comments->commentNumber();
 
 
-        require "view/admin/dashboard.php";
+        $this->render(['admin/dashboard'], compact('displayList'));
     }
     public function displayListComDashboard() {
         $list = new CommentsManager();
