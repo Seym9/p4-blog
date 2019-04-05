@@ -23,7 +23,8 @@ class PostsManager extends Manager {
             $postFeatures = [
               'id' => $post['id'],
               'title' => $post['post_title'],
-              'content' => $post['post_date']
+              'content' => $post['content'],
+              'date' => $post['post_date']
             ];
             $posts[] = new Post($postFeatures);
         }
@@ -35,13 +36,24 @@ class PostsManager extends Manager {
     public function getPostsListHome() {
         $dbConnect = $this->getDB();
         $request = $dbConnect->query("
-            SELECT id ,post_title, content , DATE_FORMAT(post_date, '%d/%m/%Y') as date_fr
+            SELECT id ,post_title, content ,post_date
             FROM p4_posts 
             ORDER BY post_date DESC
             LIMIT 1
         ");
-        $postsList = $request->fetchAll();
-        return $postsList;
+        $posts = [];
+
+        while ($post = $request->fetch()){
+
+            $postFeatures = [
+                'id' => $post['id'],
+                'title' => $post['post_title'],
+                'content' => $post['content'],
+                'date' => $post['post_date']
+            ];
+            $posts[] = new Post($postFeatures);
+        }
+        return $posts;
     }
 
     /**
@@ -51,12 +63,23 @@ class PostsManager extends Manager {
     public function getPost($post_id) {
         $dbConnect = $this->getDB();
         $request = $dbConnect->prepare("
-            SELECT id, post_title, content, DATE_FORMAT(post_date, '%d/%m/%Y') AS date_fr 
+            SELECT id, post_title, content, post_date
             FROM p4_posts 
             WHERE id = ?");
-        $request->execute(array($post_id));
-        $post = $request->fetch();
-        return $post;
+        $request->execute([$post_id]);
+        $posts = [];
+
+        while ($post = $request->fetch()){
+
+            $postFeatures = [
+                'id' => $post['id'],
+                'title' => $post['post_title'],
+                'content' => $post['content'],
+                'date' => $post['post_date']
+            ];
+            $posts[] = new Post($postFeatures);
+        }
+        return $posts;
     }
 
     public function sendPost($post_title, $content){

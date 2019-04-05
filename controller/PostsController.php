@@ -10,23 +10,26 @@ class PostsController extends MainController {
         $postsList = new PostsManager();
         $displayList = $postsList->getPostsList();
         $this->render(['page/postList'], compact('displayList'));
-        //require "view/page/postList.php";
     }
 
     public function displayPostsListHome() {
         $postsList = new PostsManager();
         $displayList = $postsList->getPostsListHome();
-        require "view/page/home.php";
+        $this->render(['page/home'], compact('displayList'));
     }
 
     public function displayPost(){
 
         if (isset($_GET['id'])){
+
             $post = new PostsManager();
             $comments = new CommentsManager();
             $displayPost = $post->getPost($_GET['id']);
-            $displayComments = $comments->getCommentsList($_GET['id']);
-            require "view/page/post.php";
+            $displayComments = $comments->getComments($_GET['id']);
+
+            $this->render(['page/post'], compact('displayPost','displayComments' ));
+
+            //require "view/page/post.php";
         } else {
             echo '404';
         }

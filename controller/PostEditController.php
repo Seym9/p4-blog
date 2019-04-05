@@ -37,7 +37,7 @@ class PostEditController extends PostsController {
             $post = new PostsManager();
             $comments = new CommentsManager();
             $displayPost = $post->getPost($_GET['id']);
-            $displayComments = $comments->getCommentsList($_GET['id']);
+            $displayComments = $comments->getComments($_GET['id']);
             require "view/admin/postAdmin.php";
         } else {
             echo '404';

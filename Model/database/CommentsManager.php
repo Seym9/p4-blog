@@ -1,6 +1,8 @@
 <?php
 namespace App\Model\Database;
 
+use App\Model\Comment;
+
 class CommentsManager extends Manager {
 
     public function sendComments ($author, $message, $id_post) {
@@ -14,16 +16,29 @@ class CommentsManager extends Manager {
        // $count = $sendComments->rowCount();
     }
 
-    public function getCommentsList($id_post) {
+    public function getComments($id_post) {
         $dbConnect = $this->getDB();
         $request = $dbConnect->prepare("
-            SELECT id, author, message, id_post, DATE_FORMAT(comment_date, '%d/%m/%Y') as date_fr
+            SELECT id, author, message, id_post, comment_date
             FROM p4_comments
             ORDER BY comment_date DESC
         ");
-        $request->execute(array($id_post));
-        $commentsList = $request->fetchAll();
-        return $commentsList;
+        $request->execute([$id_post]);
+        $comments = [];
+        while ($array = $request->fetch()){
+            $commentFeatures = [
+                'id' => $array['id'],
+                'author' => $array['author'],
+                'message' => $array['message'],
+                'id_post' => $array['id_post'],
+                'comment_date' => $array['comment_date']
+            ];
+            $comments[] = new Comment($commentFeatures);
+        }
+        return $comments;
+
+        //$commentsList = $request->fetchAll();
+        //return $commentsList;
     }
 
     public function deleteComments($comment_id) {

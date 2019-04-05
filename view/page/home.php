@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+
    <!-- <main role="main" class="site-container ">
         <div class="container site-container">
             <div class="container jumbotron site-container" >  -->
@@ -41,13 +41,13 @@
                 <?php foreach ($displayList as $postList) : ?>
 
                         <div class="card  jumbotron">
-                            <h3 class="card-text"><?= $postList['post_title'] ?></h3>
-                            <p class="card-text"><?= strip_tags(substr($postList['content'], 0 , 500)) . "...";?></p>
+                            <h3 class="card-text"><?= $postList->gettitle() ?></h3>
+                            <p class="card-text"><?= strip_tags(substr($postList->getcontent(), 0 , 500)) . "...";?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a href="index.php?p=post&id=<?= $postList["id"]?>" type="button" class="btn btn-sm btn-outline-secondary">Voir l'article</a>
+                                        <a href="index.php?p=post&id=<?= $postList->getid()?>" type="button" class="btn btn-sm btn-outline-secondary">Voir l'article</a>
                                     </div>
-                                    <p class="text-muted"><?= $postList['date_fr']?></p>
+                                    <p class="text-muted"><?= $postList->getPostDate('Y-m-d')?></p>
                                 </div>
                         </div>
                 <?php endforeach ?>
@@ -64,7 +64,3 @@
           <!--  </div>
         </div>
     </main> -->
-<?php
-$content = ob_get_clean();
-require "view/layout.php";
-?>

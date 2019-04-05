@@ -7,9 +7,9 @@ use DateTime;
 
 class Post {
     private $_id;
-    private $_postTitle;
+    private $_title;
     private $_content;
-    private $_postDate;
+    private $_date;
 
     public function __construct(array $post) {
         $this->hydrate($post);
@@ -27,16 +27,17 @@ class Post {
         $this->_id = $id;
     }
 
-    public function setTitle(string $_postTitle) {
-            $this->_postTitle = $_postTitle;
+    public function setTitle(string $postTitle) {
+            $this->_title = $postTitle;
     }
 
     public function setContent(string $content) {
             $this->_content = $content;
     }
 
-    public function setCreationDate(string $_postDate) {
-        $this->_postDate = new DateTime($_postDate);
+    public function setCreationDate(string $_date) {
+            $this->_date = new dateTime($_date);
+
     }
 
     public function getId() :int {
@@ -44,14 +45,14 @@ class Post {
     }
 
     public function getTitle() :string {
-        return $this->_postTitle;
+        return $this->_title;
     }
 
     public function getContent() :string {
         return $this->_content;
     }
 
-    public function getCreationDate(): DateTime {
-        return $this->_postDate;
+    public function getPostDate() {
+        return $this->_date;
     }
 }
