@@ -39,7 +39,7 @@ class Post {
      * @param $_date
      * @throws \Exception
      */
-    public function setCreationDate($_date) {
+    public function setDate($_date) {
             $this->_date = new DateTime($_date);
 
     }
@@ -56,7 +56,7 @@ class Post {
         return $this->_content;
     }
 
-    public function getPostDate() {
-        return $this->_date;
+    public function getDate($format) {
+        return $this->_date->format($format);
     }
 }

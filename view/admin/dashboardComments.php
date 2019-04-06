@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -33,25 +31,25 @@
                 </tr>
                 </thead>
                 <?php foreach ($displayListCom as $listComments): ?>
-                <?php if ($listComments['report'] > 0):?>
+                <?php if ($listComments->getReport() > 0):?>
                     <tbody>
                     <tr>
 
 
                         <td>
-                            <?= strip_tags($listComments['author']) ?>
+                            <?= strip_tags($listComments->getAuthor()) ?>
                         </td>
                         <td>
-                            <?= strip_tags($listComments['message']) ?>
+                            <?= strip_tags($listComments->getMessage()) ?>
                         </td>
                         <td>
-                            <?= strip_tags($listComments['date_fr']) ?>
+                            <?= $listComments->getCommentDate('d-m-Y') ?>
                         </td>
                         <td>
-                            <?= strip_tags($listComments['report']) ?>
+                            <?= $listComments->getReport() ?>
                         </td>
                         <td>
-                            <a href="index.php?p=delete-com&id=<?= $listComments['id_post']?>&id_com=<?= $listComments['id']?> " class="delete-com btn btn-danger btn-xs">delete</a>
+                            <a href="index.php?p=delete-com&id=<?= $listComments->getIdPost()?>&id_com=<?= $listComments->getId()?> " class="delete-com btn btn-danger btn-xs">delete</a>
                         </td>
                     </tr>
                     </tbody>
@@ -61,7 +59,3 @@
         </div>
     </div>
 </div>
-<?php
-$content = ob_get_clean();
-require "view/layout.php";
-?>

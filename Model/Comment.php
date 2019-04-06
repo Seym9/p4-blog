@@ -10,6 +10,7 @@ class Comment{
     private $_message;
     private $_idPost;
     private $_commentDate;
+    private $_report;
 
     public function __construct(array $comment) {
         $this->hydrate($comment);
@@ -89,19 +90,34 @@ class Comment{
     /**
      * @return mixed
      */
-    public function getCommentDate(): string
+    public function getCommentDate($format)
     {
-        return $this->_commentDate;
+        return $this->_commentDate->format($format);
     }
 
     /**
      * @param string $commentDate
      * @throws \Exception
      */
-    public function setCommentDate(string $commentDate)
+    public function setCommentDate($commentDate)
     {
         $this->_commentDate = new DateTime($commentDate);
     }
 
+    /**
+     * @return mixed
+     */
+    public function getReport(): int
+    {
+        return $this->_report;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setReport(int $id)
+    {
+        $this->_report = $id;
+    }
 
 }

@@ -14,8 +14,8 @@ class PostsController extends MainController {
 
     public function displayPostsListHome() {
         $postsList = new PostsManager();
-        $displayList = $postsList->getPostsListHome();
-        $this->render(['page/home'], compact('displayList'));
+        $post = $postsList->getPostsListHome();
+        $this->render(['page/home'], compact('post'));
     }
 
     public function displayPost(){

@@ -22,7 +22,7 @@ class DashboardController extends PostsController {
         $list = new CommentsManager();
         $displayListCom = $list->getCommentsListDashboard();
 
-        require "view/admin/dashboardComments.php";
+        $this->render(['admin/dashboardComments'], compact('displayListCom'));
     }
 
 }

@@ -17,7 +17,7 @@ uu
                 <div class="card text-center col-md-12 jumbotron">
                     <h3>
                         <?= ucfirst($list->getTitle()) ?>
-                        <?php var_dump($list->getPostDate('Y-m-d')) ?>
+                        <?=$list->getDate('d-m-Y') ?>
                     </h3>
                     <p class="text-center mt-5">
                         <?= strip_tags(substr($list->getContent(),0,350)) . "..." ?>

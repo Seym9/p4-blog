@@ -31,18 +31,18 @@
 <div class="container jumbotron" id="home-post-container">
     <div class="container-fluid jumbotron">
         <h3 class="text-center">Dernier article</h3>
-        <?php foreach ($displayList as $postList) : ?>
+
             <div class="card  jumbotron">
-                <h3 class="card-text"><?= $postList->gettitle() ?></h3>
-                <p class="card-text"><?= strip_tags(substr($postList->getcontent(), 0 , 500)) . "...";?></p>
+                <h3 class="card-text"><?= $post->gettitle() ?></h3>
+                <p class="card-text"><?= strip_tags(substr($post->getcontent(), 0 , 500)) . "...";?></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="index.php?p=post&id=<?= $postList->getid()?>" type="button" class="btn btn-sm btn-outline-secondary">Voir l'article</a>
+                        <a href="index.php?p=post&id=<?= $post->getid()?>" type="button" class="btn btn-sm btn-outline-secondary">Voir l'article</a>
                     </div>
-                    <p class="text-muted"><?= $postList->getPostDate('Y-m-d')?></p>
+                    <p class="text-muted"><?=$post->getDate('d-m-Y')?></p>
                 </div>
             </div>
-        <?php endforeach ?>
+
     </div>
 </div>
 
