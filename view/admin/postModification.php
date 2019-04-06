@@ -1,9 +1,9 @@
-<?php ob_start();
+<?php
 if (isset($_GET['id'])){
     // $displayPost = $this->postAdmin();
-    $title = $displayPost['post_title'];
-    $postContent = $displayPost['content'];
-    $action = 'index.php?p=post-edited&id=' . $displayPost['id'];
+    $title = $post->getTitle();
+    $postContent = $post->getContent();
+    $action = 'index.php?p=post-edited&id=' . $post->getId();
 }else{
     $title = "";
     $postContent = "";
@@ -25,7 +25,3 @@ if (isset($_GET['id'])){
             </div>
         </form>
     </div>
-<?php
-    $content = ob_get_clean();
-    require "view/layout.php";
-?>

@@ -58,7 +58,7 @@ if (isset($_GET['p'])) {
         $postEdit->deletePost();
     }elseif ($_GET['p'] === 'post-admin' && ($_SESSION['login']['user_status'] === 'admin')){
         $postEdit = new PostEditController();
-        $postEdit->postAdmin();
+        $postEdit->PostAdmin();
     }elseif ($_GET['p'] === 'delete-com' && ($_SESSION['login']['user_status'] === 'admin')){
         $postEdit = new PostEditController();
         $postEdit->deleteComment();

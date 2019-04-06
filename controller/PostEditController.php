@@ -8,9 +8,12 @@ class PostEditController extends PostsController {
 
     public function displayPostEdit () {
         if (isset($_GET['id'])){
-            $post = new PostsManager();
-            $displayPost = $post->getPost($_GET['id']);
-            require "view/admin/postModification.php";
+
+            $postManager = new PostsManager();
+            $commentManager = new CommentsManager();
+            $post = $postManager->getPost($_GET['id']);
+
+            $this->render(['admin/postModification'], compact('post'));
         } else {
             echo '404';
         }
@@ -32,13 +35,16 @@ class PostEditController extends PostsController {
         require "view/admin/postModification.php";
     }
 
-    public function postAdmin(){
+    public function PostAdmin(){
+
         if (isset($_GET['id'])){
-            $post = new PostsManager();
-            $comments = new CommentsManager();
-            $displayPost = $post->getPost($_GET['id']);
-            $displayComments = $comments->getComments($_GET['id']);
-            require "view/admin/postAdmin.php";
+
+            $postManager = new PostsManager();
+            $commentManager = new CommentsManager();
+            $post = $postManager->getPost($_GET['id']);
+            $comments = $commentManager->getComments($_GET['id']);
+
+            $this->render(['admin/postAdmin'], compact('post','comments' ));
         } else {
             echo '404';
         }

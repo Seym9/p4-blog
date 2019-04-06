@@ -54,29 +54,40 @@ class CommentsManager extends Manager {
         $reportComment->execute(array($comment_id));
     }
 
-//    public function commentNumber() {
-//        $db = $this->getDB();
-//        $q = $db->prepare('
-//            SELECT COUNT(*)
-//            AS nb_comments
-//            FROM p4_comments
-//            WHERE id_post
-//          IN (SELECT id AS id_post FROM p4_posts)');
-//        $q->execute();
-//        $nbOfComments = $q->fetch();
-//
-//        return $nbOfComments;
-//    }
+    public function getNbPostComments($id_post) {
+        $dbConnect = $this->getDB();
+        $nbOfComment = $dbConnect->prepare("
+                SELECT COUNT(*) AS nb_comment 
+                FROM p4_comments 
+                WHERE id_post = ?
+                ");
+        $nbOfComment->execute([$id_post]);
+        $nbComments = $nbOfComment->fetch();
+
+        return $nbComments;
+    }
 
 
     public function getCommentsListDashboard() {
         $dbConnect = $this->getDB();
         $request = $dbConnect->query("
-            SELECT id, author, message, id_post, report, DATE_FORMAT(comment_date, '%d/%m/%Y') as date_fr
+            SELECT id, author, message, id_post, report, comment_date
             FROM p4_comments
             ORDER BY report DESC
         ");
-        $commentsListDash = $request->fetchAll();
-        return $commentsListDash;
+        $request->execute();
+        $comments = [];
+        while ($comment = $request->fetch()){
+            $commentFeatures = [
+                'id' => $comment['id'],
+                'author' => $comment['author'],
+                'message' => $comment['message'],
+                'idPost' => $comment['id_post'],
+                'commentDate' => $comment['comment_date'],
+                'report' => $comment['report']
+            ];
+            $comments[] = new Comment($commentFeatures);
+        }
+        return $comments;
     }
 }

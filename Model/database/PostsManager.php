@@ -39,9 +39,8 @@ class PostsManager extends Manager {
             ORDER BY post_date DESC
             LIMIT 1
         ");
-        $posts = [];
 
-        while ($post = $request->fetch()){
+        $post = $request->fetch();
 
             $postFeatures = [
                 'id' => $post['id'],
@@ -49,8 +48,8 @@ class PostsManager extends Manager {
                 'content' => $post['content'],
                 'date' => $post['post_date']
             ];
-            $posts[] = new Post($postFeatures);
-        }
+            $posts = new Post($postFeatures);
+
         return $posts;
     }
 

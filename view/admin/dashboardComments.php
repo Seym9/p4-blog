@@ -9,10 +9,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <table class="table">
+        <div class="col-md-12 table-responsive ">
+            <table class="table table-striped toggle-circle-filler">
                 <thead>
-                <tr>
+                <tr class="table-menu">
                     <th>
                         Pseudo
                     </th>
@@ -33,7 +33,7 @@
                 <?php foreach ($displayListCom as $listComments): ?>
                 <?php if ($listComments->getReport() > 0):?>
                     <tbody>
-                    <tr>
+                    <tr class="dashboard-table">
 
 
                         <td>
