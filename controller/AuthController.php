@@ -5,10 +5,16 @@ use App\Model\Database\AuthManager;
 
 class AuthController {
 
+    /**
+     * Display the login page
+     */
     public function loginPage(){
         require "view/page/login.php";
     }
 
+    /**
+     * login the user
+     */
     public function login(){
         if (isset($_POST['login']) && isset($_POST['pass'])){
             $startAuth = new AuthManager();
@@ -25,6 +31,9 @@ class AuthController {
         }
     }
 
+    /**
+     * logout the user
+     */
     public function logout() {
         $_SESSION = [];
         session_destroy();

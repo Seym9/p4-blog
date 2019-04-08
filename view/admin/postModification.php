@@ -1,6 +1,5 @@
 <?php
 if (isset($_GET['id'])){
-    // $displayPost = $this->postAdmin();
     $title = $post->getTitle();
     $postContent = $post->getContent();
     $action = 'index.php?p=post-edited&id=' . $post->getId();

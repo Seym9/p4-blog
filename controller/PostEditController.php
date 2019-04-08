@@ -6,6 +6,9 @@ use App\Model\Database\PostsManager;
 
 class PostEditController extends PostsController {
 
+    /**
+     * View to edit articles
+     */
     public function displayPostEdit () {
         if (isset($_GET['id'])){
 
@@ -19,6 +22,9 @@ class PostEditController extends PostsController {
         }
     }
 
+    /**
+     * Send article to the DB
+     */
     public function sendingPost () {
             if (isset($_POST['title'])) {
                 $postsManager = new PostsManager();
@@ -31,10 +37,16 @@ class PostEditController extends PostsController {
             }
     }
 
+    /**
+     * Creation of article
+     */
     public function createPost(){
-        require "view/admin/postModification.php";
+        $this->render(['admin/postModification']);
     }
 
+    /**
+     * Specific view to read a article and comment as admin
+     */
     public function PostAdmin(){
 
         if (isset($_GET['id'])){
@@ -50,12 +62,18 @@ class PostEditController extends PostsController {
         }
     }
 
+    /**
+     * Delete comment
+     */
     public function deleteComment(){
         $comments = new CommentsManager();
         $comments->deleteComments($_GET['id_com']);
         echo json_encode('success');
     }
 
+    /**
+     * Update article after editing
+     */
     public function updatePost() {
         if (isset($_POST['title'])){
             $postManager = new PostsManager();
@@ -68,14 +86,14 @@ class PostEditController extends PostsController {
         }
     }
 
+    /**
+     * Deleting article
+     */
     public function deletePost() {
         if (isset($_GET['id'])){
             $postManager = new PostsManager();
             $postManager->deletePost($_GET['id']);
             echo json_encode('success');
-
-            //header('Location: index.php?p=dashboard');
-            //exit;
         }
     }
 

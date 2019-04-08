@@ -6,6 +6,10 @@ namespace App\controller;
 
 class MainController {
 
+    /**
+     * @param array $views for the page view reference
+     * @param array $variables for the variable reference to display the content on the page
+     */
     public function render(array $views, $variables = []) {
         ob_start();
 

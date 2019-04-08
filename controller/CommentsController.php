@@ -5,6 +5,9 @@ use App\Model\Database\CommentsManager;
 
 class CommentsController{
 
+    /**
+     * send the comment to the DB
+     */
     public function sendComment () {
         if (isset($_GET['id_post'])){
             if (preg_match('#^[A-Za-z]{1}[a-z0-9]{3,}$#', $_POST['author']) == 1 ){
@@ -23,6 +26,9 @@ class CommentsController{
         }
     }
 
+    /**
+     * Add +1 to the report column in the DB
+     */
     public function reportComment() {
 
         if (isset($_GET["id_post"])){

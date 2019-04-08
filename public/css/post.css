@@ -1,3 +1,13 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: url("../../public/img/post.jpg")center / cover no-repeat fixed;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-post{
     margin-top: 15%;
 }
@@ -5,7 +15,32 @@
     padding-top: 10px;
     margin-top: 5px;
 }
-
+.header-post-page{
+    background: url("../../public/img/post.jpg")center / cover no-repeat fixed;
+    padding-top: 10%;
+    color: #F2F2FC;
+}
 .action-btn-postadmin a{
     margin-right: 10px;
+}
+.post-content{
+    background-color: #E5E7E3;
+    color: #1C1C1C;
+    padding-bottom: 5%;
+    margin-top: 15%;
+}
+.post-form{
+    background-color: #1e2630;
+}
+.post-form h3{
+    color: #EDF2F4;
+}
+.post-form label{
+    color: #F2F2FC;
+}
+.post-comments{
+    background-color: #1A242F;
+}
+.post-comments .card{
+    background-color: #F2F2FC;
 }

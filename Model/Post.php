@@ -10,6 +10,7 @@ class Post {
     private $_title;
     private $_content;
     private $_date;
+    private $_author;
 
     public function __construct(array $post) {
         $this->hydrate($post);
@@ -23,14 +24,23 @@ class Post {
         }
     }
 
+    /**
+     * @param int $id
+     */
     public function setId(int $id) {
         $this->_id = $id;
     }
 
+    /**
+     * @param string $postTitle
+     */
     public function setTitle(string $postTitle) {
             $this->_title = $postTitle;
     }
 
+    /**
+     * @param string $content
+     */
     public function setContent(string $content) {
             $this->_content = $content;
     }
@@ -44,19 +54,40 @@ class Post {
 
     }
 
+    public function setAuthor($_author){
+            $this->_author = $_author;
+    }
+
+    /**
+     * @return int
+     */
     public function getId() :int {
         return $this->_id;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle() :string {
         return $this->_title;
     }
 
+    /**
+     * @return string
+     */
     public function getContent() :string {
         return $this->_content;
     }
 
+    /**
+     * @param $format
+     * @return mixed
+     */
     public function getDate($format) {
         return $this->_date->format($format);
+    }
+
+    public function getAuthor(){
+        return $this->_author;
     }
 }

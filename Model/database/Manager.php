@@ -8,7 +8,9 @@ class Manager {
     private $pdo;
 
 
-
+    /**
+     * @return PDO Connection to the DB
+     */
     public function getDB(){
         if ($this->pdo === null){
             $pdo = new PDO("mysql:host=localhost;dbname=p4_blog;charset=utf8", "root", "");

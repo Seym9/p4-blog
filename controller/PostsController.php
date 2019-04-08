@@ -6,18 +6,27 @@ use App\Model\Database\PostsManager;
 
 class PostsController extends MainController {
 
+    /**
+     * Display the list of all articles
+     */
     public function displayPostsList() {
         $postsList = new PostsManager();
         $displayList = $postsList->getPostsList();
         $this->render(['page/postList'], compact('displayList'));
     }
 
+    /**
+     * Display the last article on the home page
+     */
     public function displayPostsListHome() {
         $postsList = new PostsManager();
         $post = $postsList->getPostsListHome();
         $this->render(['page/home'], compact('post'));
     }
 
+    /**
+     * Display the all post on the specific page with comments below
+     */
     public function displayPost(){
 
         if (isset($_GET['id'])){
@@ -28,18 +37,8 @@ class PostsController extends MainController {
             $comments = $commentManager->getComments($_GET['id']);
 
             $this->render(['page/post'], compact('post','comments' ));
-
-            //require "view/page/post.php";
         } else {
             echo '404';
         }
     }
-    public function displayPostsListAdmin() {
-        $postsList = new PostsManager();
-        $displayList = $postsList->getPostsList();
-        require "view/admin/dashboard.php";
-    }
-
-
-
 }

@@ -7,3 +7,44 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+p{
+    color: #1C1C1C;
+}
+.postlist-content{
+    margin-top: 40%;
+}
+.black-postlist{
+    color: #090809
+}
+.card{
+    background-color: #E5E7E3;
+}
+.card h3{
+    color: #1C1C1C;
+}
+.date-postlist{
+    margin-top: 50px;
+}
+.header-postlist{
+    margin-bottom: 5%;
+    padding-top: 7%;
+    background-color: rgba(26, 36, 47, 0.9);
+}
+.blockquote{
+    color: #090809;
+    font-size: 15px;
+}
+.blockquote-footer{
+    color: #F2F2FC;
+    font-size: 15px;
+}
+.btn{
+    background-color: #1A242F;
+    color: #F2F2FC;;
+}
+@media all and (max-width: 770px){
+    .date-postlist{
+        margin-top: 30px;
+    }
+}
