@@ -14,6 +14,7 @@
         <div class="col-md-12">
             <div class="row">
                 <?php foreach ($displayList as $posts): ?>
+
                 <div class="col-xl-4 col-lg-6 col-md-12 card py-5 card-dashboard">
                     <h3 class="text-center">
                         Titre
@@ -25,7 +26,7 @@
                         Nombre de commentaires
                     </h3>
                     <p class="text-center">
-                        <?= $nb ?>
+                        <?= $posts->getNbComments() ?>
                     </p>
                     <h3 class="text-center">
                         Date de création

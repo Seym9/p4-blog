@@ -11,6 +11,7 @@ class Post {
     private $_content;
     private $_date;
     private $_author;
+    private $_nbComments;
 
     public function __construct(array $post) {
         $this->hydrate($post);
@@ -58,6 +59,10 @@ class Post {
             $this->_author = $_author;
     }
 
+    public function setNbComments(int $nbComments) {
+        $this->_nbComments =$nbComments;
+    }
+
     /**
      * @return int
      */
@@ -89,5 +94,9 @@ class Post {
 
     public function getAuthor(){
         return $this->_author;
+    }
+
+    public function getNbComments() :int {
+        return $this->_nbComments;
     }
 }

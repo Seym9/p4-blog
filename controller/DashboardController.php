@@ -14,9 +14,7 @@ class DashboardController extends PostsController {
      */
     public function dashboardPost() {
         $postsList = new PostsManager();
-        $nbOfComment = new CommentsManager();
         $displayList = $postsList->getPostsList();
-       // $comments = $nbOfComment->getComments($test);
 
         $this->render(['admin/dashboard'], compact('displayList'));
 
