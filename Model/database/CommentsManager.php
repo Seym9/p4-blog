@@ -11,8 +11,7 @@ class CommentsManager extends Manager {
      * @param $id_post for the id reference in the DB
      */
     public function sendComments ($author, $message, $id_post) {
-        $dbConnect = $this->getDB();
-        $sendComments = $dbConnect->prepare("
+        $sendComments = $this->prepare("
             INSERT INTO p4_comments(author, message, comment_date,id_post) 
             VALUES (?,?,NOW(),?)
         ");
@@ -24,8 +23,7 @@ class CommentsManager extends Manager {
      * @return Comment[]
      */
     public function getComments($id_post) {
-        $dbConnect = $this->getDB();
-        $request = $dbConnect->prepare("
+        $request = $this->prepare("
             SELECT comment_id, author, message, id_post, comment_date
             FROM p4_comments
             WHERE id_post = ?
@@ -50,8 +48,7 @@ class CommentsManager extends Manager {
      * @param $comment_id for the id reference in the DB
      */
     public function deleteComments($comment_id) {
-        $dbConnect = $this->getDB();
-        $deletePost = $dbConnect->prepare('DELETE FROM p4_comments WHERE id = ?');
+        $deletePost = $this->prepare('DELETE FROM p4_comments WHERE comment_id = ?');
         $deletePost->execute(array($comment_id));
     }
 
@@ -59,12 +56,10 @@ class CommentsManager extends Manager {
      * @param $comment_id for the id reference in the DB
      */
     public function reportComment($comment_id) {
-
-        $dbConnect = $this->getDB();
-        $reportComment = $dbConnect->prepare("
+        $reportComment = $this->prepare("
             UPDATE p4_comments
             SET report = report + 1
-            WHERE id = ?
+            WHERE comment_id = ?
         ");
         $reportComment->execute(array($comment_id));
     }
@@ -74,8 +69,7 @@ class CommentsManager extends Manager {
      * @return mixed
      */
     public function getNbPostComments($id_post) {
-        $dbConnect = $this->getDB();
-        $nbOfComment = $dbConnect->prepare("
+        $nbOfComment = $this->prepare("
                 SELECT COUNT(*) AS nb_comment 
                 FROM p4_comments 
                 WHERE id_post = ?
@@ -86,13 +80,37 @@ class CommentsManager extends Manager {
         return $nbComments;
     }
 
+    public function getPostId(){
+        $request = $this->query("
+            SELECT post_id
+            FROM p4_posts 
+        ");
+
+        $request->execute();
+
+        $postsId = [];
+        while ($postIdArray = $request->fetch()){
+           array_push($postsId, $postIdArray['post_id']);
+        }
+        return $postsId;
+    }
+
+    public function getNbComment($id_post){
+        $request = $this->prepare("
+        SELECT COUNT(*) AS nb_comment
+        FROM p4_comments
+        WHERE id_post = ?
+        ");
+            $request->execute([$id_post]);
+            $nbComments = $request->fetch();
+        return $nbComments;
+    }
 
     /**
      * @return Comment[]
      */
     public function getCommentsListDashboard() {
-        $dbConnect = $this->getDB();
-        $request = $dbConnect->query("
+        $request = $this->query("
             SELECT comment_id, author, message, id_post, report, comment_date
             FROM p4_comments
             ORDER BY report DESC

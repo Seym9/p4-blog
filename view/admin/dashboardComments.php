@@ -6,6 +6,7 @@
                 </h1>
                 <p>Partie commentaire</p>
                 <a href="index.php?p=dashboard" class="btn btn-primary">Partie article</a>
+                <a href="index.php?p=post-creation" class="btn btn-primary">Crée un post</a>
             </div>
         </div>
 
@@ -19,25 +20,25 @@
                                     Nom de l'autheur
                                 </h3>
                                 <p class="text-center">
-                                    <?= strip_tags($listComments->getAuthor()) ?>
+                                    <?= htmlentities(strip_tags($listComments->getAuthor()) )?>
                                 </p>
                                 <h3 class="text-center">
                                     Message
                                 </h3>
                                 <p class="text-center">
-                                    <?= strip_tags($listComments->getMessage()) ?>
+                                    <?= htmlentities(strip_tags($listComments->getMessage())) ?>
                                 </p>
                                 <h3 class="text-center">
                                     Date du commentaire
                                 </h3>
                                 <p class="text-center">
-                                    <?= $listComments->getCommentDate('d-m-Y') ?>
+                                    <?= htmlentities($listComments->getCommentDate('d-m-Y')) ?>
                                 </p>
                                 <h3 class="text-center">
                                     Nombre de signalement
                                 </h3>
                                 <p class="text-center">
-                                    <?= $listComments->getReport() ?>
+                                    <?= htmlentities($listComments->getReport()) ?>
                                 </p>
                                 <h3 class="text-center">
                                     Option disponnible

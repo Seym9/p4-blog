@@ -14,7 +14,6 @@
         <div class="col-md-12">
             <div class="row">
                 <?php foreach ($displayList as $posts): ?>
-
                 <div class="col-xl-4 col-lg-6 col-md-12 card py-5 card-dashboard">
                     <h3 class="text-center">
                         Titre
@@ -38,9 +37,9 @@
                         Option disponnible
                     </h3>
                     <div class="d-flex justify-content-center">
-                    <a href="index.php?p=post-admin&id=<?= $posts->getId()?>" class="btn btn-primary btn-sm mx-2">Voir</a>
-                    <a href="index.php?p=post-edit&id=<?= $posts->getId()?>" class="btn btn-warning btn-sm mx-2">Modifier</a>
-                    <a href="index.php?p=post-delete&id=<?= $posts->getId()?>" class="delete-post btn btn-danger btn-sm mx-2">Supprimer</a>
+                        <a href="index.php?p=post-admin&id=<?= $posts->getId()?>" class="btn btn-primary btn-sm mx-2">Voir</a>
+                        <a href="index.php?p=post-edit&id=<?= $posts->getId()?>" class="btn btn-warning btn-sm mx-2">Modifier</a>
+                        <a href="index.php?p=post-delete&id=<?= $posts->getId()?>" class="delete-post btn btn-danger btn-sm mx-2">Supprimer</a>
                     </div>
                 </div>
                 <?php endforeach;?>

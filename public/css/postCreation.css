@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: url("../../public/img/postcreation.jpg")center / cover no-repeat fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    color: #1C1C1C;
+    font-size: 16px;
+}
+.btn{
+    color: #F2F2FC;
+    background-color: #090809;
+}
+.post-creation-form{
+    margin-top: 10%;
+}
+#title-edit{
+    width: 100%;
+}

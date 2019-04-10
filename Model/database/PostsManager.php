@@ -9,8 +9,7 @@ class PostsManager extends Manager {
      * @return Post[]
      */
     public function getPostsList() {
-        $dbConnect = $this->getDB();
-        $request = $dbConnect->query("
+        $request = $this->query("
             SELECT post_id ,post_title, content , post_date
             FROM p4_posts 
             ORDER BY post_date ASC    
@@ -18,16 +17,22 @@ class PostsManager extends Manager {
 
         $posts = [];
 
-        while ($post = $request->fetch()){
 
-            $postFeatures = [
+
+        while ($post = $request->fetch()){
+            $commentManager = new CommentsManager();
+            $nbComments = $commentManager->getNbComment($post['post_id']);
+
+        $postFeatures = [
               'id' => $post['post_id'],
               'title' => $post['post_title'],
               'content' => $post['content'],
-              'date' => $post['post_date']
+              'date' => $post['post_date'],
+              'nbComments' => $nbComments['nb_comment']
             ];
-            $posts[] = new Post($postFeatures);
+        $posts[] = new Post($postFeatures);
         }
+
         return $posts;
     }
 
@@ -35,8 +40,7 @@ class PostsManager extends Manager {
      * @return Post
      */
     public function getPostsListHome() {
-        $dbConnect = $this->getDB();
-        $request = $dbConnect->query("
+        $request = $this->query("
             SELECT post_id ,post_title, content ,post_date
             FROM p4_posts 
             ORDER BY post_date DESC
@@ -61,8 +65,7 @@ class PostsManager extends Manager {
      * @return Post
      */
     public function getPost($post_id) {
-        $dbConnect = $this->getDB();
-        $request = $dbConnect->prepare("
+        $request = $this->prepare("
             SELECT post_id, post_title, content, post_date, username
             FROM p4_posts 
             INNER JOIN p4_users AS author
@@ -88,22 +91,21 @@ class PostsManager extends Manager {
     /**
      * @param $post_title for the title of the post in the DB
      * @param $content for the content of the post in the DB
+     * @param $author_id
      */
-    public function sendPost($post_title, $content){
-        $dbConnect = $this->getDB();
-        $sendPost = $dbConnect->prepare("
-            INSERT INTO p4_posts(post_title, content, post_date) 
-            VALUES (?,?,NOW())
+    public function sendPost($post_title, $content,$author_id){
+        $sendPost = $this->prepare("
+            INSERT INTO p4_posts(post_title, content, post_date, author_id) 
+            VALUES (?,?,NOW(),?)
         ");
-        $sendPost->execute(array($post_title, $content));
+        $sendPost->execute(array($post_title, $content,$author_id));
     }
 
     /**
      * @param $post_id for the id reference in the DB
      */
     public function deletePost($post_id) {
-        $dbConnect = $this->getDB();
-        $deletePost = $dbConnect->prepare('DELETE FROM p4_posts WHERE id = ?');
+        $deletePost = $this->prepare('DELETE FROM p4_posts WHERE post_id = ?');
         $deletePost->execute(array($post_id));
     }
 
@@ -113,10 +115,8 @@ class PostsManager extends Manager {
      * @param $post_id for the id reference in the DB
      */
     public function updatePost($title, $content, $post_id){
-        $dbConnect = $this->getDB();
-        $updatePost = $dbConnect->prepare('UPDATE p4_posts SET post_title = ?, content = ? WHERE id = ?');
+        $updatePost = $this->prepare('UPDATE p4_posts SET post_title = ?, content = ? WHERE post_id = ?');
         $updatePost->execute(array($title, $content, $post_id));
 
     }
-
 }

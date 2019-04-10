@@ -9,18 +9,18 @@ if (isset($_GET['id'])){
     $action = "index.php?p=post-send";
 }
     ?>
-    <div class="container">
+    <div class="container post-creation-form card py-5">
         <form action="<?= $action ?>" method="post" id="form-post">
-            <div>
-                <label for="title-edit">Titre du post</label>
+            <div class=" text-center py-5">
+                <label for="title-edit">Titre de l'article</label><br>
                 <input type="text" name="title" id="title-edit" value="<?= $title ?>">
             </div>
-            <div>
-                <label for="post-edit">Contenu du post</label>
+            <div class="text-center">
+                <label class="" for="post-edit">Contenu de l'article</label><br>
                 <textarea name="post" id="post" cols="30" rows="10"><?= $postContent ?></textarea>
             </div>
             <div>
-                <input type="submit" value="Send" class="btn btn-primary">
+                <input type="submit" value="Envoyer" class="btn btn-block mt-3">
             </div>
         </form>
     </div>

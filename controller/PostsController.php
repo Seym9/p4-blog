@@ -9,7 +9,7 @@ class PostsController extends MainController {
     /**
      * Display the list of all articles
      */
-    public function displayPostsList() {
+    public function postsList() {
         $postsList = new PostsManager();
         $displayList = $postsList->getPostsList();
         $this->render(['page/postList'], compact('displayList'));
@@ -18,7 +18,7 @@ class PostsController extends MainController {
     /**
      * Display the last article on the home page
      */
-    public function displayPostsListHome() {
+    public function postHome() {
         $postsList = new PostsManager();
         $post = $postsList->getPostsListHome();
         $this->render(['page/home'], compact('post'));
@@ -27,7 +27,7 @@ class PostsController extends MainController {
     /**
      * Display the all post on the specific page with comments below
      */
-    public function displayPost(){
+    public function post(){
 
         if (isset($_GET['id'])){
 
@@ -39,6 +39,21 @@ class PostsController extends MainController {
             $this->render(['page/post'], compact('post','comments' ));
         } else {
             echo '404';
+        }
+    }
+
+    /**
+     * Display the article in the admin page
+     */
+    public function dashboardPost() {
+        if ($_SESSION['status'] === 'admin'){
+            $postsList = new PostsManager();
+            $displayList = $postsList->getPostsList();
+
+            $this->render(['admin/dashboard'], compact('displayList'));
+        }else{
+            header('Location: index.php');
+            exit;
         }
     }
 }

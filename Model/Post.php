@@ -13,9 +13,17 @@ class Post {
     private $_author;
     private $_nbComments;
 
+    /**
+     * Post constructor.
+     * @param array $post
+     */
     public function __construct(array $post) {
         $this->hydrate($post);
     }
+
+    /**
+     * @param $post
+     */
     public function hydrate($post) {
         foreach($post as $key => $value) {
             $setter = 'set' . ucfirst($key);

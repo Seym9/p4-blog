@@ -11,9 +11,6 @@
 
 <section class="text-center" id="home-welcome">
     <div class="header-home">
-<!--        <h1 class="title-home">Billet simple pour l'Alaska</h1>-->
-<!--        <p class="title-home">Par <span>Jean Forteroche</span></p>-->
-<!--        <p class="lead title-home">Installez vous et plonger dans son univers </p>-->
 
         <div class="btn-group">
             <a href="index.php?p=post-list" type="button" class="btn my-2 header-btn" >Voir tout les chapitres</a>
@@ -31,7 +28,7 @@
 </section>
 
 <div class="container jumbotron note-home" id="home-post-container">
-    <div class="container-fluid jumbotron text-center note-home">
+    <div class="container-fluid  text-center note-home">
         <h3 class="text-center">Dernier article</h3>
 
             <div class="card jumbotron last-article-home">
@@ -39,7 +36,7 @@
                 <p class="card-text"><?= strip_tags(substr($post->getcontent(), 0 , 500)) . "...";?></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="index.php?p=post&id=<?= $post->getid()?>" type="button" class="btn btn-sm">Voir l'article</a>
+                        <a href="index.php?p=post&id=<?= $post->getId()?>" type="button" class="btn btn-sm">Voir l'article</a>
                     </div>
                     <p class="black-home">Mis en ligne le : <?=$post->getDate('d-m-Y')?></p>
                 </div>

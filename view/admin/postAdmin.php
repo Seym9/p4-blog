@@ -49,12 +49,12 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <h3>
-                                        <?= $comment->getAuthor() ?>
+                                        <?= htmlentities($comment->getAuthor()) ?>
                                     </h3>
                                 </div>
                             </div>
                             <p>
-                                <?= $comment->getMessage() ?>
+                                <?= htmlentities($comment->getMessage()) ?>
                             </p>
                         </div>
 

@@ -1,5 +1,9 @@
-<?php ob_start(); ?>
 <div class="container">
+    <?php if($error): ?>
+        <div class="alert text-center alert-danger alert-dismissible">
+            <strong>Erreur</strong> Identifiant ou mot de passe incorrect ! !
+        </div>
+    <?php endif; ?>
     <div class="d-flex justify-content-center h-100">
         <div class="card">
             <div class="card-header text-center">
@@ -28,7 +32,4 @@
         </div>
     </div>
 </div>
-<?php
-$content = ob_get_clean();
-require "view/layout.php";
-?>
+

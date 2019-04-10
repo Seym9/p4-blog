@@ -13,8 +13,8 @@
                         </h1>
                     </div>
                         <?= $post->getContent() ?>
-                        <?= $post->getAuthor(); ?>
                     </p>
+                    <p>Par <span><?= $post->getAuthor(); ?></span></p>
                 </div>
             </div>
             <div class="row pt-5 text-center post-form">
@@ -62,10 +62,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-                            <h3><?= $comment->getAuthor() ?></h3>
+                            <h3><?= htmlentities($comment->getAuthor()) ?></h3>
                         </div>
                     </div>
-                    <p><?= $comment->getMessage() ?></p>
+                    <p><?= htmlentities($comment->getMessage()) ?></p>
                 </div>
             </div>
             <?php endforeach ?>

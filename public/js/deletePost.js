@@ -4,7 +4,6 @@ $(function () {
         e.preventDefault();
         let targetEvent = $(e.target).parent().parent();
         let deleteClass = "";
-//changer le nom deleteClass
         if (e.target.href.includes("post")){
             deleteClass = "cet article";
         } else {

@@ -3,32 +3,32 @@ namespace App\controller;
 
 use App\Model\Database\AuthManager;
 
-class AuthController {
 
-    /**
-     * Display the login page
-     */
-    public function loginPage(){
-        require "view/page/login.php";
-    }
+class AuthController extends MainController {
 
     /**
      * login the user
      */
     public function login(){
-        if (isset($_POST['login']) && isset($_POST['pass'])){
-            $startAuth = new AuthManager();
-            $verifAuth = $startAuth->getAuth($_POST['login']);
+        $error = false;
 
-            if (password_verify($_POST['pass'], $verifAuth['pass'])){
+        if (htmlentities(isset ($_POST['login'])) && htmlentities(isset($_POST['pass']))){
+            $authManager = new AuthManager();
+            $user = $authManager->getAuth($_POST['login']);
+
+            if (password_verify($_POST['pass'], $user->getPassword())){
                 echo ($_POST);
 
-                $_SESSION['login'] = $verifAuth;
+                $_SESSION['login'] = $user->getLogin();
+                $_SESSION['status'] = $user->getStatus();
+                $_SESSION['id'] = $user->getId();
                 header('Location: index.php?p=dashboard');
+            }else{
+                $error = true;
             }
-        }else{
-            echo 'error';
         }
+
+        $this->render(['page/login'], compact('error'));
     }
 
     /**

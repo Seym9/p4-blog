@@ -2,7 +2,7 @@ function actionStatus (status,message){
     let container = document.createElement("div");
     container.textContent = message;
     //$("body").append(container);
-    $("body").append(container);
+    $(".status-message").append(container);
 
     if (status === "success") {
         console.log(container);

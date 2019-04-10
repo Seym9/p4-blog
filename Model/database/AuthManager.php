@@ -2,6 +2,8 @@
 
 namespace App\Model\Database;
 
+use App\Model\User;
+
 class AuthManager extends Manager {
 
     /**
@@ -9,14 +11,23 @@ class AuthManager extends Manager {
      * @return mixed
      */
     public function getAuth($login){
-       $dbConnect = $this->getDB();
-       $request = $dbConnect->prepare("
+       $request = $this->prepare("
             SELECT user_id, login, username,  pass, user_status
             FROM p4_users
             WHERE login = ?
        ");
-       $request->execute(array($login));
-       $user = $request->fetch();
+       $request->execute([$login]);
+       $userArray = $request->fetch();
+
+       $userFeatures = [
+           'id' => $userArray['user_id'],
+           'login' => $userArray['login'],
+           'username' => $userArray['username'],
+           'password' => $userArray['pass'],
+           'status' => $userArray['user_status']
+       ];
+
+       $user = new User($userFeatures);
        return $user;
    }
 }

@@ -9,8 +9,8 @@ class PostEditController extends PostsController {
     /**
      * View to edit articles
      */
-    public function displayPostEdit () {
-        if (isset($_GET['id'])){
+    public function postEdit () {
+        if (htmlentities(isset($_GET['id']))){
 
             $postManager = new PostsManager();
             $commentManager = new CommentsManager();
@@ -26,9 +26,9 @@ class PostEditController extends PostsController {
      * Send article to the DB
      */
     public function sendingPost () {
-            if (isset($_POST['title'])) {
+            if (htmlentities(isset($_POST['title']))) {
                 $postsManager = new PostsManager();
-                $postCreated = $postsManager->sendPost($_POST['title'],$_POST['post']);
+                $postCreated = $postsManager->sendPost($_POST['title'],$_POST['post'], $_SESSION['id']);
                 header('Location: index.php?p=dashboard');
                 exit;
             } else {
@@ -49,13 +49,12 @@ class PostEditController extends PostsController {
      */
     public function PostAdmin(){
 
-        if (isset($_GET['id'])){
+        if (htmlentities(isset($_GET['id']))){
 
             $postManager = new PostsManager();
             $commentManager = new CommentsManager();
             $post = $postManager->getPost($_GET['id']);
             $comments = $commentManager->getComments($_GET['id']);
-
             $this->render(['admin/postAdmin'], compact('post','comments' ));
         } else {
             echo '404';
@@ -65,17 +64,13 @@ class PostEditController extends PostsController {
     /**
      * Delete comment
      */
-    public function deleteComment(){
-        $comments = new CommentsManager();
-        $comments->deleteComments($_GET['id_com']);
-        echo json_encode('success');
-    }
+
 
     /**
      * Update article after editing
      */
     public function updatePost() {
-        if (isset($_POST['title'])){
+        if (htmlentities(isset($_POST['title']))){
             $postManager = new PostsManager();
             $updatePost = $postManager->updatePost($_POST['title'],$_POST['post'],$_GET['id']);
             header('Location: index.php?p=dashboard');
@@ -90,7 +85,7 @@ class PostEditController extends PostsController {
      * Deleting article
      */
     public function deletePost() {
-        if (isset($_GET['id'])){
+        if (htmlentities(isset($_GET['id']))){
             $postManager = new PostsManager();
             $postManager->deletePost($_GET['id']);
             echo json_encode('success');
