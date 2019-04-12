@@ -15,11 +15,19 @@ class Manager {
         return $pdo;
     }
 
+    /**
+     * @param $statement request to the DB
+     * @return false|\PDOStatement
+     */
     protected function query($statement){
         $this->query = $this->getDB()->query($statement);
         return $this->query;
     }
 
+    /**
+     * @param $statement request to the DB
+     * @return bool|\PDOStatement
+     */
     protected function prepare($statement){
         $this->prepare = $this->getDB()->prepare($statement);
         return $this->prepare;

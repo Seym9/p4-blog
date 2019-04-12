@@ -1,6 +1,4 @@
 $(function() {
-
-
     $(".first").on("click", function () {
         let target = document.querySelector(".last");
         let targetPosition = target.getBoundingClientRect().top;
@@ -22,7 +20,6 @@ $(function() {
             t--;
             return -c / 2 * (t * (t - 2) - 1) + b;
         }
-
         requestAnimationFrame(loop);
     });
 });

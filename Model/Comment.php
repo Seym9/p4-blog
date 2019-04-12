@@ -24,7 +24,7 @@ class Comment{
         }
     }
     /**
-     * @return mixed
+     * @return int
      */
     public function getId(): int
     {
@@ -32,7 +32,7 @@ class Comment{
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId(int $id)
     {
@@ -40,7 +40,7 @@ class Comment{
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAuthor(): string
     {
@@ -48,7 +48,7 @@ class Comment{
     }
 
     /**
-     * @param mixed $author
+     * @param string $author
      */
     public function setAuthor(string $author)
     {
@@ -56,7 +56,7 @@ class Comment{
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getMessage(): string
     {
@@ -64,7 +64,7 @@ class Comment{
     }
 
     /**
-     * @param mixed $message
+     * @param string $message
      */
     public function setMessage(string $message)
     {
@@ -72,7 +72,7 @@ class Comment{
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getIdPost(): int
     {
@@ -88,7 +88,7 @@ class Comment{
     }
 
     /**
-     * @return mixed
+     * @return date
      */
     public function getCommentDate($format)
     {
@@ -105,7 +105,7 @@ class Comment{
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getReport(): int
     {
@@ -113,7 +113,7 @@ class Comment{
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setReport(int $id)
     {

@@ -9,7 +9,6 @@
     opacity: 0;
     display: none;
 }
-
 aside {
     position: fixed;
     width: 20vw;
@@ -23,21 +22,17 @@ aside {
     transition-duration: 0.5s;
     padding: 5px;
 }
-
 aside nav {
     padding: 0 25px;
 }
-
 aside ul {
     padding-left: 0;
 }
-
 aside li {
     padding: 3px 0;
     list-style: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-
 aside a {
     color: #adaca8;
     font-weight: 400;
@@ -46,19 +41,15 @@ aside a {
     display: block;
     text-decoration: none;
 }
-
 aside a:hover {
     color: #fff;
 }
-
 aside.open_menu {
     transform: translateX(0);
 }
-
 aside .close {
     margin-right: auto;
 }
-
 .close {
     position: relative;
     cursor: pointer;
@@ -68,7 +59,6 @@ aside .close {
     justify-content: center;
     align-items: center;
 }
-
 .close div {
     height: 3px;
     background-color: #fff;
@@ -92,11 +82,9 @@ aside .close {
     border-radius: 5px;
     border: 1px solid #1e364e;
 }
-
 .hamburger_menu div:nth-child(2) {
     margin: 9px 0;
 }
-
 .submenu {
     padding-right: 30px;
 }
@@ -104,16 +92,13 @@ aside .close {
     footer {
         padding: 20px;
     }
-
     footer nav {
         padding: 0;
     }
-
     .hamburger_menu {
         top: 10px;
         left: 10px;
     }
-
     .hamburger_menu div {
         height: 3px;
     }

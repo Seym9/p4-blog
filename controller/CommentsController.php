@@ -9,7 +9,6 @@ class CommentsController extends MainController{
      * send the comment to the DB
      */
     public function sendComment () {
-///^[\s]*$/
         if (htmlentities(isset($_GET['id_post']))){
             if (preg_match('#^[A-Za-z]{1}[\w]{2,}$#', $_POST['author']) && strlen(trim($_POST['comment'])) > 0) {
                 $comment = new CommentsManager();
@@ -20,7 +19,6 @@ class CommentsController extends MainController{
             }else {
                 header('Location: index.php?p=post&id=' . $_GET['id_post']);
                 exit;
-
             }
         } else {
             header('Location: index.php?p=post&id=' . $_GET['id_post']);
@@ -37,7 +35,6 @@ class CommentsController extends MainController{
             $report = new CommentsManager();
             $report->reportComment($_GET['report_com']);
         }
-
         header('Location: index.php?p=post&id=' . htmlentities($_GET['id_post']));
         exit;
     }

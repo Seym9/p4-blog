@@ -1,5 +1,4 @@
 $(function () {
-
     $(".delete-post, .delete-com").on("click", function (e)  {
         e.preventDefault();
         let targetEvent = $(e.target).parent().parent();

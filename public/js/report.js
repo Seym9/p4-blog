@@ -1,8 +1,6 @@
 $(function () {
-
     $(".report").on("click", function (e) {
         e.preventDefault();
-
         let choice = confirm("Voulez vous signaler ce commentaire ?");
 
         if (choice) {
@@ -13,7 +11,6 @@ $(function () {
                     } else {
                         actionStatus("error", "Une erreur s'est produite");
                     }
-
             });
         }
     });

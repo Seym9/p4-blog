@@ -15,7 +15,6 @@ class PostsController extends MainController {
 
         $pageTitle = "Tout les articles";
         $this->render(['page/postList'], compact('displayList', 'pageTitle'));
-
     }
 
     /**
@@ -26,8 +25,6 @@ class PostsController extends MainController {
         $post = $postsList->getPostsListHome();
         $pageTitle = "Mon blog";
         $this->render(['page/home'], compact('post', 'pageTitle'));
-
-
     }
 
     /**
@@ -38,7 +35,6 @@ class PostsController extends MainController {
         if (isset($_GET['id']) && !empty($_GET['id'])){
             $postManager = new PostsManager();
             $check = $postManager->idCheck($_GET['id']);
-
             $pageTitle = "Article";
 
             if ($check == 1){
@@ -53,7 +49,6 @@ class PostsController extends MainController {
         } else {
             header('Location: index.php');
         }
-
     }
 
     /**
@@ -70,7 +65,6 @@ class PostsController extends MainController {
             header('Location: index.php');
             exit;
         }
-
     }
 
     /**
@@ -80,15 +74,12 @@ class PostsController extends MainController {
         if (isset($_GET['id'])){
             $postManager = new PostsManager();
             $post = $postManager->getPost($_GET['id']);
-
             $pageTitle = "Edition d'article";
 
             $this->render(['admin/postModification'], compact('post', 'pageTitle'));
         } else {
             echo '404';
         }
-
-
     }
 
     /**
@@ -125,15 +116,12 @@ class PostsController extends MainController {
             $commentManager = new CommentsManager();
             $post = $postManager->getPost($_GET['id']);
             $comments = $commentManager->getComments($_GET['id']);
-
             $pageTitle = "Article";
 
             $this->render(['admin/postAdmin'], compact('post','comments', 'pageTitle'));
         } else {
             echo '404';
         }
-
-
     }
 
     /**

@@ -100,10 +100,16 @@ class Post {
         return $this->_date->format($format);
     }
 
+    /**
+     * @return mixed
+     */
     public function getAuthor(){
         return $this->_author;
     }
 
+    /**
+     * @return int
+     */
     public function getNbComments() :int {
         return $this->_nbComments;
     }

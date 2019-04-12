@@ -20,20 +20,13 @@ h3{
     height: 100%;
     min-height: 100%;
 }
-/*.header-btn{*/
-/*    background-color: #1A242F;*/
-/*    color: #F2F2FC;*/
-/*}*/
 #home-welcome{
     margin-top: 30%;
 }
 #home-post-container{
     display: flex;
 }
-
 .header-home{
-    /*background-color: rgba(214, 207, 215,0.1);*/
-
     margin: 0 auto;
 }
 
