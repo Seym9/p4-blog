@@ -72,8 +72,8 @@ class PostsManager extends Manager {
             ON p4_posts.author_id = author.user_id 
             WHERE p4_posts.post_id = ? 
             ");
-        $request->execute([$post_id]);
 
+        $request->execute([$post_id]);
         $post = $request->fetch();
 
         $postFeatures = [
@@ -105,7 +105,10 @@ class PostsManager extends Manager {
      * @param $post_id for the id reference in the DB
      */
     public function deletePost($post_id) {
-        $deletePost = $this->prepare('DELETE FROM p4_posts WHERE post_id = ?');
+        $deletePost = $this->prepare('
+                DELETE FROM p4_posts 
+                WHERE post_id = ?
+                ');
         $deletePost->execute(array($post_id));
     }
 
@@ -115,8 +118,31 @@ class PostsManager extends Manager {
      * @param $post_id for the id reference in the DB
      */
     public function updatePost($title, $content, $post_id){
-        $updatePost = $this->prepare('UPDATE p4_posts SET post_title = ?, content = ? WHERE post_id = ?');
+        $updatePost = $this->prepare('
+                UPDATE p4_posts 
+                SET post_title = ?, content = ? 
+                WHERE post_id = ?
+                ');
         $updatePost->execute(array($title, $content, $post_id));
-
     }
+
+
+    /**
+     * @param $post_id
+     * @return int
+     */
+    public function idCheck($post_id) {
+        $idChecker = $this->prepare("
+                SELECT COUNT(*) 
+                AS id_check 
+                FROM p4_posts 
+                WHERE post_id = ?
+                ");
+        $idChecker->execute([$post_id]);
+        $count = $idChecker->fetch();
+        $verify = $count['id_check'];
+
+        return $verify;
+    }
+
 }
