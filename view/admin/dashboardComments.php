@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="row mt-5 content-dashboard">
+        <div class="row content-dashboard">
             <div class="col-md-12">
                 <div class="row">
                     <?php foreach ($displayListCom as $listComments): ?>

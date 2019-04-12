@@ -19,3 +19,16 @@ body{
 .card-dashboard{
     background-color: #F2F2FC;
 }
+@media all and (max-width: 1025px){
+    .post-content{
+        margin-top: 25%;
+    }
+}
+@media all and (max-width: 768px){
+    body{
+        background: none;
+    }
+    .post-content{
+        margin-top: 0;
+    }
+}

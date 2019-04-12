@@ -14,11 +14,6 @@ body{
     padding-top: 10px;
     margin-top: 5px;
 }
-.header-post-page{
-    background: url("../../public/img/post.jpg")center / cover no-repeat fixed;
-    padding-top: 10%;
-    color: #F2F2FC;
-}
 .action-btn-postadmin a{
     margin-right: 10px;
 }
@@ -50,4 +45,17 @@ body{
 .error-comment{
     display: none;
     color: #ff1d33;
+}
+@media all and (max-width: 1025px){
+    .post-content{
+        margin-top: 25%;
+    }
+}
+@media all and (max-width: 768px){
+    body{
+        background: none;
+    }
+    .post-content{
+        margin-top: 0;
+    }
 }

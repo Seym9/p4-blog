@@ -84,7 +84,6 @@ class PostsManager extends Manager {
             'author' => $post['username']
         ];
         $post = new Post($postFeatures);
-
         return $post;
     }
 

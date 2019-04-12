@@ -38,7 +38,7 @@
                                 </div>
                                 <div>
                                     <label for="comment">Message</label><br>
-                                    <textarea name="comment" id="comment" cols="75" rows="5" placeholder="Votre message"></textarea>
+                                    <textarea name="comment" id="comment" cols="40" rows="5" placeholder="Votre message"></textarea>
                                     <span class="error-comment">Le message est vide !</span>
                                 </div>
                                 <div>

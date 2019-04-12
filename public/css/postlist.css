@@ -43,8 +43,14 @@ p{
     background-color: #1A242F;
     color: #F2F2FC;;
 }
-@media all and (max-width: 770px){
+@media all and (max-width: 1025px){
+    body{
+        background: url("../../public/img/post-list-mobile.jpg")center / cover no-repeat fixed;
+    }
     .date-postlist{
         margin-top: 30px;
+    }
+    .postlist-content{
+        margin-top: 30%;
     }
 }

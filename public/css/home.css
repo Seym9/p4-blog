@@ -47,20 +47,17 @@ h3{
 .mobile-home-content{
     display: none;
 }
-@media all and (max-width: 1024px){
+@media all and (max-width: 1025px){
     body{
         background: url("../../public/img/home-mobile.jpg")center / cover no-repeat fixed;
     }
-    .mobile-home-content{
-        display: block;
-    }
-}
-@media all and (max-width: 770px){
-
     .header-home{
         background-color: rgba(26, 36, 47, 0.7);
         width: 100%;
         margin: 0 auto;
+    }
+    #home-welcome{
+        margin-top: 50%;
     }
     #about-home{
         text-align: center;
@@ -71,5 +68,10 @@ h3{
     }
     .btn-group{
         display: flex;
+    }
+}
+@media all and (max-width: 770px){
+    #home-welcome{
+        margin-top: 35%;
     }
 }
