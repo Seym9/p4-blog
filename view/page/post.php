@@ -33,14 +33,16 @@
                             <form action="index.php?p=sendcomment&id_post=<?= $post->getId()?>" method="post" id="form-comment">
                                 <div>
                                     <label for="author">Nom ou pseudo</label><br>
-                                    <input name="author" type="text" id="author" placeholder="Votre nom">
+                                    <input class="author-comment" name="author" type="text" id="author" placeholder="Votre nom"><br>
+                                    <span class="error-author-comment">3 lettres minimum<br>Seul les lettres , chiffres et _ sont acceptés</span>
                                 </div>
                                 <div>
                                     <label for="comment">Message</label><br>
                                     <textarea name="comment" id="comment" cols="75" rows="5" placeholder="Votre message"></textarea>
+                                    <span class="error-comment">Le message est vide !</span>
                                 </div>
                                 <div>
-                                    <input type="submit" value="Send" class="btn btn-primary">
+                                    <input type="submit" value="Send" class="btn btn-primary" id="submit-comment">
                                 </div>
                             </form>
                         </div>

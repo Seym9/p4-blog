@@ -1,4 +1,5 @@
 <?php
+//var_dump($post);
 if (isset($_GET['id'])){
     $title = $post->getTitle();
     $postContent = $post->getContent();
@@ -13,11 +14,11 @@ if (isset($_GET['id'])){
         <form action="<?= $action ?>" method="post" id="form-post">
             <div class=" text-center py-5">
                 <label for="title-edit">Titre de l'article</label><br>
-                <input type="text" name="title" id="title-edit" value="<?= $title ?>">
+                <input type="text" name="title" id="title-edit" value="<?= $title ?>" required>
             </div>
             <div class="text-center">
                 <label class="" for="post-edit">Contenu de l'article</label><br>
-                <textarea name="post" id="post" cols="30" rows="10"><?= $postContent ?></textarea>
+                <textarea name="post-edit" id="post-edit" cols="30" rows="10"><?= $postContent ?></textarea>
             </div>
             <div>
                 <input type="submit" value="Envoyer" class="btn btn-block mt-3">

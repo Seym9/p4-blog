@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Mon blog</title>
+    <title><?= htmlspecialchars($pageTitle) ?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!--favicon-->
+    <link rel="icon" sizes="32x32" href="public/img/favicon-32.png" type="image/png">
+<!--css-->
     <link rel="stylesheet" href="public/css/style.css">
-
-
     <link rel="stylesheet" href="public/css/menu.css">
-    <link rel="stylesheet" href="public/css/bootstrap.css">
-
 
     <?php if (isset($_GET['p']) && (in_array($_GET['p'],["post-edit","post-creation"]))): ?>
         <link rel="stylesheet" href="public/css/postCreation.css">
@@ -99,8 +98,11 @@
 <?php if (isset($_GET['p']) && in_array($_GET['p'],["post-edit","post", "post-admin", "dashboard", "dashboard-comments"])): ?>
     <script src="public/js/deletePost.js"></script>
     <script src="public/js/actionStatus.js"></script>
+    <script src="public/js/form.js"></script>
+    <script src="public/js/report.js"></script>
 <?php endif; ?>
-<script src="public/js/scroll.js"></script>
-<script src="public/js/report.js"></script>
+<?php if (!isset($_GET['p']) || empty($_GET['p'])): ?>
+    <script src="public/js/scroll.js"></script>
+<?php endif; ?>
 </body>
 </html>

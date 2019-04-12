@@ -11,12 +11,13 @@
 
 <section class="text-center" id="home-welcome">
     <div class="header-home">
+        <h1 class="jumbotron-heading mobile-home-content">Billet simple pour l'Alaska</h1>
+        <p class="mobile-home-content">Par <span>Jean Forteroche</span></p>
+        <p class="lead mobile-home-content">Installez vous et plonger dans son univers </p>
 
         <div class="btn-group">
-            <a href="index.php?p=post-list" type="button" class="btn my-2 header-btn" >Voir tout les chapitres</a>
-        </div>
-        <div class="btn-group">
-            <a href="#" type="button" class="btn my-2 first header-btn" >Apprenez en plus sur l'auteur</a>
+            <a href="index.php?p=post-list" type="button" class="btn my-2 mx-2 header-btn btn-sm" >Voir tout les chapitres</a>
+            <a href="#" type="button" class="btn my-2 first header-btn btn-sm" >Apprenez en plus sur l'auteur</a>
         </div>
     </div>
 

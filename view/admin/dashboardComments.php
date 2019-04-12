@@ -14,7 +14,6 @@
             <div class="col-md-12">
                 <div class="row">
                     <?php foreach ($displayListCom as $listComments): ?>
-                        <?php if ($listComments->getReport() > 0):?>
                             <div class="col-xl-4 col-lg-6 col-md-12 card my-5 py-5 card-dashboard">
                                 <h3 class="text-center">
                                     Nom de l'autheur
@@ -47,7 +46,6 @@
                                     <a href="index.php?p=delete-com&id=<?= $listComments->getIdPost()?>&id_com=<?= $listComments->getId()?> " class="delete-com btn btn-danger btn-xs">delete</a>
                                 </div>
                             </div>
-                        <?php endif; ?>
                     <?php endforeach;?>
                 </div>
             </div>

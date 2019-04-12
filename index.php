@@ -10,7 +10,7 @@ Autoloader::register();
 session_start();
 
 
-if (isset($_GET['p'])) {
+if (isset($_GET['p']) && !empty($_GET['p'])) {
     if ($_GET['p'] === 'post') {
         $post = new PostsController();
         $post->post();
@@ -36,22 +36,22 @@ if (isset($_GET['p'])) {
         $post = new CommentsController();
         $post->dashboardComment();
     }elseif ($_GET['p'] === 'post-send' && ($_SESSION['status'] === 'admin')){
-        $postEdit = new PostEditController();
+        $postEdit = new PostsController();
         $postEdit->sendingPost();
     }elseif ($_GET['p'] === 'post-edit' && ($_SESSION['status'] === 'admin')){
-        $postEdit = new PostEditController();
+        $postEdit = new PostsController();
         $postEdit->postEdit();
     }elseif ($_GET['p'] === 'post-creation' && ($_SESSION['status'] === 'admin')){
-        $postEdit = new PostEditController();
+        $postEdit = new PostsController();
         $postEdit->createPost();
     }elseif ($_GET['p'] === 'post-edited' && ($_SESSION['status'] === 'admin')){
-        $postEdit = new PostEditController();
+        $postEdit = new PostsController();
         $postEdit->updatePost();
     }elseif ($_GET['p'] === 'post-delete' && ($_SESSION['status'] === 'admin')){
-        $postEdit = new PostEditController();
+        $postEdit = new PostsController();
         $postEdit->deletePost();
     }elseif ($_GET['p'] === 'post-admin' && ($_SESSION['status'] === 'admin')){
-        $postEdit = new PostEditController();
+        $postEdit = new PostsController();
         $postEdit->PostAdmin();
     }elseif ($_GET['p'] === 'delete-com' && ($_SESSION['status'] === 'admin')){
         $postEdit = new CommentsController();

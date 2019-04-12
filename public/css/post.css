@@ -44,3 +44,11 @@ body{
 .post-comments .card{
     background-color: #F2F2FC;
 }
+.error-author-comment{
+    display: none;
+    color: #ff1d33;
+}
+.error-comment{
+    display: none;
+    color: #ff1d33;
+}
