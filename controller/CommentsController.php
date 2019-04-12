@@ -9,9 +9,9 @@ class CommentsController extends MainController{
      * send the comment to the DB
      */
     public function sendComment () {
-
+///^[\s]*$/
         if (htmlentities(isset($_GET['id_post']))){
-            if (preg_match('#^[A-Za-z]{1}[a-z0-9]{3,}$#', $_POST['author']) == 1 && (!empty($_POST['comment']))){
+            if (preg_match('#^[A-Za-z]{1}[\w]{2,}$#', $_POST['author']) && strlen(trim($_POST['comment'])) > 0) {
                 $comment = new CommentsManager();
                 $comment->sendComments($_POST['author'], $_POST['comment'], $_GET['id_post']);
 

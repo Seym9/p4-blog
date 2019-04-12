@@ -12,24 +12,25 @@ class AuthController extends MainController {
     public function login(){
         $error = false;
 
-        if (htmlentities(isset ($_POST['login'])) && htmlentities(isset($_POST['pass']))){
+        if (isset($_POST['login']) && isset($_POST['pass'])){
             $authManager = new AuthManager();
             $user = $authManager->getAuth($_POST['login']);
 
-            if (password_verify($_POST['pass'], $user->getPassword())){
-                echo ($_POST);
-
-                $_SESSION['login'] = $user->getLogin();
-                $_SESSION['status'] = $user->getStatus();
-                $_SESSION['id'] = $user->getId();
-                header('Location: index.php?p=dashboard');
+            if($user != false){
+                if (password_verify($_POST['pass'], $user->getPassword())){
+                    $_SESSION['login'] = $user->getLogin();
+                    $_SESSION['status'] = $user->getStatus();
+                    $_SESSION['id'] = $user->getId();
+                    header('Location: index.php?p=dashboard');
+                }else{
+                    $error = true;
+                }
             }else{
-                $error = true;
+                header('Location: index.php?p=login');
             }
         }
-
-        $this->render(['page/login'], compact('error'));
-    }
+                $this->render(['page/login'], compact('error'));
+            }
 
     /**
      * logout the user
