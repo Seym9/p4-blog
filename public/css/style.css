@@ -4,7 +4,13 @@ body{
     height: 100%;
     min-height: 100%;
 }
-
+h1,h2,h3{
+    font-family: 'Satisfy', sans-serif;
+    font-size: 30px;
+}
+p,span,link{
+    font-family: 'Roboto', sans-serif;
+}
 #layout-content{
     height: 100%;
     min-height: 100%;

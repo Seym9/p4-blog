@@ -10,7 +10,7 @@ class CommentsController extends MainController{
      */
     public function sendComment () {
         if (htmlentities(isset($_GET['id_post']))){
-            if (preg_match('#^[A-Za-z]{1}[\w]{2,}$#', $_POST['author']) && strlen(trim($_POST['comment'])) > 0) {
+            if (preg_match('#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{3,60}$#', $_POST['author']) && strlen(trim($_POST['comment'])) > 0) {
                 $comment = new CommentsManager();
                 $comment->sendComments($_POST['author'], $_POST['comment'], $_GET['id_post']);
 

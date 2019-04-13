@@ -46,6 +46,9 @@ body{
     display: none;
     color: #ff1d33;
 }
+.post-date-comment{
+    font-weight: bold;
+}
 @media all and (max-width: 1025px){
     .post-content{
         margin-top: 25%;

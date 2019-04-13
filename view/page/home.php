@@ -16,8 +16,8 @@
         <p class="lead mobile-home-content">Installez vous et plonger dans son univers </p>
 
         <div class="btn-group">
-            <a href="index.php?p=post-list" type="button" class="btn my-2 mx-2 header-btn btn-sm" >Voir tout les chapitres</a>
-            <a href="#" type="button" class="btn my-2 first header-btn btn-sm" >Apprenez en plus sur l'auteur</a>
+            <a href="index.php?p=post-list" type="button" class="btn btn-primary my-2 mx-2 header-btn btn-sm" >Voir tout les chapitres</a>
+            <a href="#" type="button" class="btn btn-primary my-2 first header-btn btn-sm" >Apprenez en plus sur l'auteur</a>
         </div>
     </div>
 
@@ -37,7 +37,7 @@
                 <p class="card-text"><?= strip_tags(substr($post->getcontent(), 0 , 500)) . "...";?></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="index.php?p=post&id=<?= $post->getId()?>" type="button" class="btn btn-sm">Voir l'article</a>
+                        <a href="index.php?p=post&id=<?= $post->getId()?>" type="button" class="btn btn-primary btn-sm">Voir l'article</a>
                     </div>
                     <p class="black-home">Mis en ligne le : <?=$post->getDate('d-m-Y')?></p>
                 </div>

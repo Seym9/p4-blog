@@ -59,12 +59,13 @@
             <div class="row pt-5 post-comments">
                 <div class="col-md-8 card container">
                     <div class="btn-warning-post">
+                        <p class="post-date-comment">Le <?= $comment->getCommentDate('d-m-Y'); ?></p>
                         <i class="fas fa-exclamation-triangle"></i>
                         <a href="index.php?p=report&report_com=<?=$comment->getId()?>&id_post=<?=$post->getId()?>" class="btn btn-danger btn-xs report" >Signaler</a>
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-                            <h3><?= htmlentities($comment->getAuthor()) ?></h3>
+                            <h3><?= htmlentities($comment->getAuthor())?></h3>
                         </div>
                     </div>
                     <p><?= htmlentities($comment->getMessage()) ?></p>

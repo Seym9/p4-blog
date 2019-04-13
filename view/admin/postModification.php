@@ -21,7 +21,7 @@ if (isset($_GET['id'])){
                 <textarea name="post-edit" id="post-edit" cols="30" rows="10"><?= $postContent ?></textarea>
             </div>
             <div>
-                <input type="submit" value="Envoyer" class="btn btn-block mt-3">
+                <input type="submit" value="Envoyer" class="btn btn-primary btn-block mt-3">
             </div>
         </form>
     </div>

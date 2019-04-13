@@ -1,6 +1,6 @@
 $(function () {
     $('#form-comment').on('submit', function (e) {
-        let regexAuthor = /^[A-Za-z]{1}[\w]{2,}$/;
+        let regexAuthor = /^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{3,60}$/;
         let $author = $('#author');
         let $authorVal = $author.val();
         let $spanAuthor = $('.error-author-comment');

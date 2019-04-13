@@ -10,7 +10,7 @@
                     <p class="text-center mt-5">
                         <?= strip_tags(substr($list->getContent(),0,350)) . "..." ?>
                     </p>
-                    <a href="index.php?p=post&id=<?= $list->getId()?>" class="btn">Lire le chapitre</a>
+                    <a href="index.php?p=post&id=<?= $list->getId()?>" class="btn btn-primary">Lire le chapitre</a>
                     <p class="col-md-4 date-postlist black-postlist">Publié le : <?=$list->getDate('d-m-Y') ?> <br>par Jean Forteroche</p>
                 </div>
             </div>
